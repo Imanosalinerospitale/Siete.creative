@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio</title>
 
+  <!-- Fuente Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -16,13 +17,15 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth; /* Desplazamiento suave al tocar los links del menú */
+    }
+
     body {
-      background: #fff;
+      background: #ffffff;
       font-family: 'Space Mono', monospace;
-      min-height: 100vh;
+      color: #111111;
       overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
     }
 
     /* Navegación fija y centrada */
@@ -33,10 +36,10 @@
       width: 100%;
       padding: 24px 20px;
       display: flex;
-      justify-content: center; /* Centrado horizontal */
+      justify-content: center;
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(5px);
-      z-index: 10;
+      z-index: 100;
     }
 
     .nav-links {
@@ -59,13 +62,12 @@
       transform: scale(2);
     }
 
-    /* GIF a pantalla completa */
+    /* Sección Principal: GIF a pantalla completa */
     .hero-section {
-      flex: 1;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
     }
 
     .hero-gif {
@@ -74,30 +76,16 @@
       display: block;
     }
 
-    @media (max-width: 600px) {
-      .header { padding: 18px 12px; }
-      .nav-links { gap: 16px; }
-      .nav-links a { font-size: 13px; }
-      .nav-links a:hover { transform: scale(1.4); }
+    /* Sección Contacto */
+    .contact-section {
+      min-height: 100vh;
+      padding: 120px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
     }
-  </style>
-</head>
-<body>
 
-  <header class="header">
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#home">home</a></li>
-        <li><a href="#nosotros">nosotros</a></li>
-        <li><a href="#proyectos">proyectos</a></li>
-        <li><a href="#contacto">contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="hero-section" id="home">
-    <img src="Recursos/logo1.gif" alt="Logo" class="hero-gif">
-  </main>
-
-</body>
-</html>
+    .contact-container {
+      width: 100%;
