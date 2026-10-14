@@ -76,7 +76,7 @@
       display: block;
     }
 
-    /* Videos en loop */
+    /* Contenedor unificado para videos en loop */
     .video-box {
       width: 100%;
       display: flex;
@@ -97,7 +97,7 @@
       transform: scale(1.05);
     }
 
-    /* Contacto */
+    /* Formulario de contacto */
     .contact {
       min-height: 100vh;
       padding: 100px 24px 60px;
@@ -184,6 +184,7 @@
 </head>
 <body>
 
+  <!-- Barra de navegación en el top -->
   <header class="header">
     <nav class="nav-links">
       <a href="#home">home</a>
@@ -193,22 +194,33 @@
     </nav>
   </header>
 
+  <!-- Portada con GIF -->
   <main class="hero" id="home">
     <img src="Recursos/logo2.gif" alt="Logo">
   </main>
 
+  <!-- Video 1 -->
   <section class="video-box">
     <video autoplay loop muted playsinline>
       <source src="Recursos/video1.mp4" type="video/mp4">
     </video>
   </section>
 
+  <!-- Video 2 -->
   <section class="video-box">
     <video autoplay loop muted playsinline>
       <source src="Recursos/video2.mp4" type="video/mp4">
     </video>
   </section>
 
+  <!-- Video 3 -->
+  <section class="video-box">
+    <video autoplay loop muted playsinline>
+      <source src="Recursos/video3.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- Sección Contacto -->
   <section class="contact" id="contacto">
     <form>
       <h2>// contacto</h2>
