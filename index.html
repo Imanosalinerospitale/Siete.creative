@@ -60,10 +60,10 @@
       transform: scale(1.8);
     }
 
-    /* GIF de portada sin altura forzada de 100vh */
+    /* GIF de portada */
     .hero {
       width: 100%;
-      padding-top: 70px; /* Despeje exacto para la barra superior fija */
+      padding-top: 70px;
       padding-bottom: 0;
       display: flex;
       align-items: center;
@@ -76,7 +76,7 @@
       display: block;
     }
 
-    /* Video en loop pegado al GIF */
+    /* Contenedor unificado para videos en loop */
     .video-box {
       width: 100%;
       display: flex;
@@ -184,6 +184,7 @@
 </head>
 <body>
 
+  <!-- Barra de navegación en el top -->
   <header class="header">
     <nav class="nav-links">
       <a href="#home">home</a>
@@ -193,16 +194,33 @@
     </nav>
   </header>
 
+  <!-- Portada con GIF -->
   <main class="hero" id="home">
     <img src="Recursos/logo2.gif" alt="Logo">
   </main>
 
-  <section class="video-box" id="video">
+  <!-- Video 1 -->
+  <section class="video-box">
     <video autoplay loop muted playsinline>
       <source src="Recursos/video1.mp4" type="video/mp4">
     </video>
   </section>
 
+  <!-- Video 2 -->
+  <section class="video-box">
+    <video autoplay loop muted playsinline>
+      <source src="Recursos/video2.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- Video 3 -->
+  <section class="video-box">
+    <video autoplay loop muted playsinline>
+      <source src="Recursos/video3.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- Sección Contacto -->
   <section class="contact" id="contacto">
     <form>
       <h2>// contacto</h2>
