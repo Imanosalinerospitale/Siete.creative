@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #ece6e6;
+      font-family: 'Space Mono', monospace;
+      color: #111111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      background: rgba(236, 230, 230, 0.95);
+      backdrop-filter: blur(5px);
+      z-index: 100;
+    }
+
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      display: inline-block;
+      text-decoration: none;
+      color: #111111;
+      font-size: 14px;
+      text-transform: lowercase;
+      letter-spacing: -0.2px;
+      transition: transform 0.2s ease;
+    }
+    .nav-links a:hover { transform: scale(1.8); }
+
+    .content-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 24px 60px;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 400;
+      text-transform: lowercase;
+      margin-bottom: 32px;
+    }
+
+    .bio-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #222222;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .header { padding: 14px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 12px; }
+      .nav-links a:hover { transform: scale(1.3); }
+      .content-section { padding: 90px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <nav class="nav-links">
+      <a href="index.html#home">home</a>
+      <a href="nosotros.html">nosotros</a>
+      <a href="proyectos.html">proyectos</a>
+      <a href="index.html#contacto">contacto</a>
+    </nav>
+  </header>
+
+  <main class="content-section">
+    <h1>// nosotros</h1>
+    <div class="bio-text">
+      <p>Texto de presentación o manifiesto del estudio / productora.</p>
+      <p>Espacio disponible para bio, equipo o visión conceptual.</p>
+    </div>
+  </main>
+
+</body>
+</html>
