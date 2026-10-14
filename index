@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
 
+  <!-- Fuente Space Mono de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: 'Space Mono', monospace;
+      color: #111111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Barra de navegación superior */
+    .header {
+      width: 100%;
+      padding: 24px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(5px);
+      z-index: 100;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: flex-end; /* Alineado a la derecha */
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      text-decoration: none;
+      color: #111111;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: lowercase;
+      letter-spacing: -0.2px;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.5;
+    }
+
+    /* Contenedor central para el GIF en loop */
+    .hero-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-gif {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Ajustes para celulares */
+    @media (max-width: 600px) {
+      .header {
+        padding: 20px 16px;
+      }
+
+      .navbar {
+        justify-content: center;
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .hero-gif {
+        max-width: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación en el top -->
+  <header class="header">
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#home">home</a></li>
+        <li><a href="#nosotros">nosotros</a></li>
+        <li><a href="#proyectos">proyectos</a></li>
+        <li><a href="#contacto">contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- GIF centrado en bucle -->
+  <main class="hero-section" id="home">
+    <div class="logo-container">
+      <img src="GIF logo 1.gif" alt="Logo animado" class="hero-gif">
+    </div>
+  </main>
+
+</body>
+</html>
