@@ -23,7 +23,7 @@
       font-family: 'Space Mono', monospace;
       color: #111111;
       min-height: 100vh;
-      overflow-x: hidden; /* Evita scroll lateral */
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
     }
@@ -31,7 +31,7 @@
     /* Barra de navegación superior */
     .header {
       width: 100%;
-      padding: 24px 40px;
+      padding: 28px 40px;
       position: fixed;
       top: 0;
       left: 0;
@@ -42,16 +42,18 @@
 
     .navbar {
       display: flex;
-      justify-content: flex-end; /* Alineado a la derecha */
+      justify-content: flex-end;
     }
 
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 32px;
+      gap: 36px;
+      align-items: center;
     }
 
     .nav-links a {
+      display: inline-block;
       font-family: 'Space Mono', monospace;
       text-decoration: none;
       color: #111111;
@@ -59,11 +61,14 @@
       font-weight: 400;
       text-transform: lowercase;
       letter-spacing: -0.2px;
-      transition: opacity 0.2s ease;
+      transform-origin: center center;
+      transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease;
     }
 
+    /* Al pasar el mouse duplica el tamaño */
     .nav-links a:hover {
-      opacity: 0.5;
+      transform: scale(2);
+      opacity: 1;
     }
 
     /* Contenedor principal a ancho completo */
@@ -83,7 +88,7 @@
       align-items: center;
     }
 
-    /* El GIF ocupa el ancho total del dispositivo */
+    /* GIF ocupando el 100% del ancho */
     .hero-gif {
       width: 100%;
       max-width: 100%;
@@ -102,7 +107,39 @@
       }
 
       .nav-links {
-        gap: 18px;
+        gap: 20px;
       }
 
-      .nav-links a
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .nav-links a:hover {
+        transform: scale(1.5); /* Escala más contenida en mobile para no desbordar */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación en el top -->
+  <header class="header">
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#home">home</a></li>
+        <li><a href="#nosotros">nosotros</a></li>
+        <li><a href="#proyectos">proyectos</a></li>
+        <li><a href="#contacto">contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- GIF ocupando el 100% del ancho -->
+  <main class="hero-section" id="home">
+    <div class="logo-container">
+      <img src="Recursos/logo1.gif" alt="Logo animado" class="hero-gif">
+    </div>
+  </main>
+
+</body>
+</html>
