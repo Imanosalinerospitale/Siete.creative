@@ -129,7 +129,7 @@
   <!-- GIF centrado en bucle -->
   <main class="hero-section" id="home">
     <div class="logo-container">
-      <img src="GIF logo 1.gif" alt="Logo animado" class="hero-gif">
+      <img src="recursos/logo1.gif" alt="Logo animado" class="hero-gif">
     </div>
   </main>
 
