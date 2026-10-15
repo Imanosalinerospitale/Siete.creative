@@ -51,9 +51,21 @@ a, button, video, input, textarea {
   transform: scale(1.35);
 }
 
+/* Ajustes responsive para mobile */
 @media (max-width: 600px) {
-  .header { padding: 16px 12px; }
-  .nav-links { gap: 20px; }
-  .nav-links a { font-size: 14px; }
-  .nav-links a:hover { transform: scale(1.2); }
+  .header {
+    padding: 16px 12px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .nav-links a:hover {
+    transform: scale(1.2);
+  }
 }
