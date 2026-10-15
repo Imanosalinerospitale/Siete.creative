@@ -20,7 +20,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden; /* Frena desborde de zoom */
+      overflow: hidden;
     }
 
     .hero-video {
@@ -32,7 +32,6 @@
       transform-origin: center center;
     }
 
-    /* Zoom del 15% al terminar el video */
     .hero-video.zoomed {
       transform: scale(1.15);
     }
@@ -58,15 +57,15 @@
       }
     }
 
-    /* Contacto */
+    /* Sección Contacto: calibrada para scroll completo */
     .contact {
       min-height: 100vh;
-      padding: 140px 24px 100px;
+      padding: 120px 24px 18vh; /* Espacio inferior extra para permitir scroll hasta el fondo */
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start; /* Arranca arriba para no quedar cortado a la mitad */
       align-items: center;
-      scroll-margin-top: 80px;
+      scroll-margin-top: 70px;
     }
 
     .contact form {
@@ -104,7 +103,7 @@
       background: transparent;
       padding: 6px 0;
       font: inherit;
-      font-size: 16px; /* 16px evita el zoom forzado en Safari/iOS al tocar para escribir */
+      font-size: 16px;
       outline: none;
     }
 
@@ -131,19 +130,18 @@
       color: #ece6e6;
     }
 
-    /* Ajustes específicos de index para móviles */
     @media (max-width: 600px) {
       .hero {
         padding: 70px 0 20px;
       }
 
       .hero-video {
-        width: 82%; /* Proporción más equilibrada en vertical */
+        width: 82%;
       }
 
       .contact {
-        padding: 100px 20px 60px;
-        scroll-margin-top: 60px;
+        padding: 95px 20px 22vh;
+        scroll-margin-top: 55px;
       }
     }
   </style>
@@ -155,11 +153,11 @@
       <a href="#home">sie7e</a>
       <a href="nosotros.html">nosotros</a>
       <a href="proyectos.html">proyectos</a>
-      <a href="#contacto">contacto</a>
+      <a href="#contacto" id="link-contacto">contacto</a>
     </nav>
   </header>
 
-  <!-- Portada / Logo WebM actualizado a logo2.webm -->
+  <!-- Portada / Logo WebM -->
   <main class="hero" id="home">
     <video id="logo-video" class="hero-video" autoplay muted playsinline>
       <source src="Recursos/logo2.webm" type="video/webm">
@@ -206,10 +204,23 @@
   </section>
 
   <script>
+    // Zoom suave al terminar el video del logo
     const logoVideo = document.getElementById('logo-video');
     if (logoVideo) {
       logoVideo.addEventListener('ended', function() {
         logoVideo.classList.add('zoomed');
+      });
+    }
+
+    // Scroll suave y preciso al formulario de contacto
+    const contactLink = document.getElementById('link-contacto');
+    const contactSection = document.getElementById('contacto');
+    if (contactLink && contactSection) {
+      contactLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Mantiene la URL limpia
+        history.pushState(null, null, '#contacto');
       });
     }
   </script>
