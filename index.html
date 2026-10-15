@@ -31,7 +31,6 @@
       transform-origin: center center;
     }
 
-    /* Zoom del 15% al terminar el video */
     .hero-video.zoomed {
       transform: scale(1.15);
     }
@@ -54,12 +53,15 @@
       transform: scale(1.05);
     }
 
+    /* Contacto con compensación de scroll y altura completa */
     .contact {
       min-height: 100vh;
-      padding: 100px 24px 60px;
+      padding: 140px 24px 100px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      scroll-margin-top: 80px;
     }
 
     .contact form {
@@ -125,7 +127,7 @@
     @media (max-width: 600px) {
       .hero { padding: 75px 0 24px; }
       .hero-video { width: 90%; }
-      .contact { padding: 80px 16px 40px; }
+      .contact { padding: 110px 16px 60px; scroll-margin-top: 60px; }
     }
   </style>
 </head>
