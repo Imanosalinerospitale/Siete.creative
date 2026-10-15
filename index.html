@@ -5,50 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sie7e</title>
 
-  <!-- Favicon -->
+  <!-- Favicon SVG -->
   <link rel="icon" type="image/svg+xml" href="Recursos/favicon7.svg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* ... tus estilos de index ... */
-  </style>
-</head>
-    .hero { 
-      width: 100%; 
-      padding: 100px 0 40px; 
-      display: flex; 
-      justify-content: center; 
-      overflow: hidden; /* Evita que el zoom del logo genere scroll horizontal */
-    }
-    .hero-video { 
-      width: 68%; 
-      max-width: 850px; 
-      height: auto; 
-      pointer-events: none; 
-      /* Transición para el zoom suave de 1.5 segundos (ease-out hace que empiece normal y frene con suavidad) */
-      transition: transform 1.5s cubic-bezier(0.25, 1, 0.50, 1); 
-      transform-origin: center center; /* El zoom se realiza desde el centro */
-    }
-    
-    /* Esta clase se activará desde JavaScript al terminar el video */
-    .hero-video.zoomed {
-      transform: scale(1.15); /* Aumenta un 15% su tamaño */
+    .hero {
+      width: 100%;
+      padding: 100px 0 40px;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .video-box { width: 100%; display: flex; justify-content: center; overflow: hidden; }
-    .video-box video { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
-    .video-box video:hover { transform: scale(1.05); }
-    .contact { min-height: 100vh; padding: 100px 24px 60px; display: flex; justify-content: center; align-items: center; }
-    .contact form { width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 28px; }
-    .contact h2 { font-size: 18px; font-weight: 400; text-transform: lowercase; }
-    .field { display: flex; flex-direction: column; gap: 6px; }
-    .field label { font-size: 12px; text-transform: lowercase; color: #555; }
-    .field input, .field textarea { width: 100%; border: none; border-bottom: 1px solid #111; background: transparent; padding: 6px 0; font: inherit; font-size: 14px; outline: none; }
-    .btn { align-self: flex-start; background: transparent; border: 1px solid #111; padding: 10px 24px; font: inherit; font-size: 13px; text-transform: lowercase; transition: 0.2s; }
-    .btn:hover { background: #111; color: #ece6e6; }
+    .hero-video {
+      width: 68%;
+      max-width: 850px;
+      height: auto;
+      pointer-events: none;
+      transition: transform 1.5s cubic-bezier(0.25, 1, 0.50, 1);
+      transform-origin: center center;
+    }
+
+    /* Zoom del 15% al terminar el video */
+    .hero-video.zoomed {
+      transform: scale(1.15);
+    }
+
+    .video-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-box video {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .video-box video:hover {
+      transform: scale(1.05);
+    }
+
+    .contact {
+      min-height: 100vh;
+      padding: 100px 24px 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact form {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .contact h2 {
+      font-size: 18px;
+      font-weight: 400;
+      text-transform: lowercase;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field label {
+      font-size: 12px;
+      text-transform: lowercase;
+      color: #555555;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #111111;
+      border-radius: 0;
+      background: transparent;
+      padding: 6px 0;
+      font: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .btn {
+      align-self: flex-start;
+      background: transparent;
+      border: 1px solid #111111;
+      padding: 10px 24px;
+      font: inherit;
+      font-size: 13px;
+      text-transform: lowercase;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn:hover {
+      background: #111111;
+      color: #ece6e6;
+    }
+
     @media (max-width: 600px) {
       .hero { padding: 75px 0 24px; }
       .hero-video { width: 90%; }
@@ -57,6 +130,7 @@
   </style>
 </head>
 <body>
+
   <header class="header">
     <nav class="nav-links">
       <a href="#home">sie7e</a>
@@ -66,28 +140,52 @@
     </nav>
   </header>
 
+  <!-- Portada / Logo WebM -->
   <main class="hero" id="home">
-    <!-- Se agregó id="logo-video" para poder llamarlo desde el script -->
     <video id="logo-video" class="hero-video" autoplay muted playsinline>
       <source src="Recursos/logo1.webm" type="video/webm">
     </video>
   </main>
 
-  <section class="video-box"><video autoplay loop muted playsinline><source src="Recursos/video1.mp4?v=2" type="video/mp4"></video></section>
-  <section class="video-box"><video autoplay loop muted playsinline><source src="Recursos/video2.mp4?v=2" type="video/mp4"></video></section>
-  <section class="video-box"><video autoplay loop muted playsinline><source src="Recursos/video3.mp4?v=2" type="video/mp4"></video></section>
+  <!-- Videos de muestra -->
+  <section class="video-box">
+    <video autoplay loop muted playsinline>
+      <source src="Recursos/video1.mp4?v=2" type="video/mp4">
+    </video>
+  </section>
 
+  <section class="video-box">
+    <video autoplay loop muted playsinline>
+      <source src="Recursos/video2.mp4?v=2" type="video/mp4">
+    </video>
+  </section>
+
+  <section class="video-box">
+    <video autoplay loop muted playsinline>
+      <source src="Recursos/video3.mp4?v=2" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- Contacto -->
   <section class="contact" id="contacto">
     <form>
       <h2>// contacto</h2>
-      <div class="field"><label for="nombre">nombre</label><input type="text" id="nombre" required></div>
-      <div class="field"><label for="email">email</label><input type="email" id="email" required></div>
-      <div class="field"><label for="mensaje">mensaje</label><textarea id="mensaje" rows="4" required></textarea></div>
+      <div class="field">
+        <label for="nombre">nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="field">
+        <label for="email">email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="mensaje">mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+      </div>
       <button type="submit" class="btn">enviar -></button>
     </form>
   </section>
 
-  <!-- Script que detecta el final del video y activa la clase 'zoomed' -->
   <script>
     const logoVideo = document.getElementById('logo-video');
     if (logoVideo) {
