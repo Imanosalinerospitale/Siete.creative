@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #ece6e6;
+  font-family: 'Space Mono', monospace;
+  color: #111111;
+  overflow-x: hidden; /* Evita cualquier desplazamiento horizontal no deseado */
+  width: 100%;
+}
+
+/* Scroll suave solo si la persona no pidió reducir movimiento */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Texto solo para lectores de pantalla / buscadores */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Cursor solo para dispositivos con mouse real */
+@media (hover: hover) and (pointer: fine) {
+  html, body {
+    cursor: url('Recursos/cursor.svg') 0 0, auto;
+  }
+  a, button, video, input, textarea {
+    cursor: url('Recursos/cursor.svg') 0 0, pointer;
+  }
+}
+
+/* Títulos de página compartidos (nosotros / proyectos) */
+h1 {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+/* Foco visible para navegación con teclado */
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 4px;
+}
+
+/* Header & Navegación compartida */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 20px;
+  display: flex;
+  justify-content: center;
+  background: rgba(236, 230, 230, 0.95);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 100;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.nav-links a {
+  display: inline-block;
+  text-decoration: none;
+  color: #111111;
+  font-size: 17px;
+  line-height: 1;
+  text-transform: lowercase;
+  letter-spacing: -0.2px;
+  transition: transform 0.2s ease;
+}
+
+/* Hover solo en dispositivos con mouse */
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:hover {
+    transform: scale(1.35);
+  }
+}
+
+/* Página activa */
+.nav-links a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Optimización Responsive para Celulares */
+@media (max-width: 600px) {
+  .header {
+    padding: 14px 10px;
+  }
+
+  .nav-links {
+    gap: 16px; /* Separación armónica para pantallas chicas */
+    width: 100%;
+    justify-content: space-around; /* Distribuye uniformemente los 4 enlaces */
+  }
+
+  .nav-links a {
+    font-size: 13px; /* Tamaño legible sin saturar la barra */
+    padding: 4px 2px;
+  }
+}
+
+/* Respeto a "reducir movimiento" */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
