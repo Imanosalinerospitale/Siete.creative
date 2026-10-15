@@ -27,7 +27,7 @@
       overflow-x: hidden;
     }
 
-    /* Navegación fija: enlaces más grandes y más espaciados */
+    /* Navegación fija */
     .header {
       position: fixed;
       top: 0;
@@ -43,14 +43,14 @@
 
     .nav-links {
       display: flex;
-      gap: 48px; /* Más separación entre enlaces */
+      gap: 48px;
     }
 
     .nav-links a {
       display: inline-block;
       text-decoration: none;
       color: #111111;
-      font-size: 17px; /* Tipografía más grande */
+      font-size: 17px;
       text-transform: lowercase;
       letter-spacing: -0.2px;
       transition: transform 0.2s ease;
@@ -60,7 +60,7 @@
       transform: scale(1.35);
     }
 
-    /* GIF de portada: ocupa la mitad de ancho */
+    /* Logo .webm: una sola reproducción, centrado y más grande */
     .hero {
       width: 100%;
       padding-top: 100px;
@@ -70,11 +70,12 @@
       justify-content: center;
     }
 
-    .hero img {
-      width: 50%; /* Ocupa la mitad de lo que ocupaba */
-      max-width: 650px;
+    .hero-video {
+      width: 68%;
+      max-width: 850px;
       height: auto;
       display: block;
+      pointer-events: none; /* Evita que el usuario pause o cliquee accidentalmente sobre el logo */
     }
 
     /* Videos en loop al 100% */
@@ -173,14 +174,13 @@
       color: #ece6e6;
     }
 
-    /* Ajustes para pantallas chicas / celular */
     @media (max-width: 600px) {
       .header { padding: 16px 12px; }
       .nav-links { gap: 20px; }
       .nav-links a { font-size: 14px; }
       .nav-links a:hover { transform: scale(1.2); }
-      .hero { padding-top: 70px; padding-bottom: 24px; }
-      .hero img { width: 75%; } /* En móvil se ve mejor a 75% para que no quede diminuto */
+      .hero { padding-top: 75px; padding-bottom: 24px; }
+      .hero-video { width: 90%; }
       .contact { padding: 80px 16px 40px; }
     }
   </style>
@@ -197,9 +197,12 @@
     </nav>
   </header>
 
-  <!-- Portada con GIF reducido al 50% -->
+  <!-- Portada con video WebM (se reproduce 1 vez y frena al final) -->
   <main class="hero" id="home">
-    <img src="Recursos/logo2.gif" alt="Logo">
+    <video class="hero-video" autoplay muted playsinline>
+      <source src="Recursos/logo1.webm" type="video/webm">
+      Tu navegador no soporta video WebM.
+    </video>
   </main>
 
   <!-- Video 1 -->
