@@ -14,6 +14,11 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      cursor: url('Recursos/cursor.svg') 12 12, auto;
+    }
+
+    a, button, video, input, textarea {
+      cursor: url('Recursos/cursor.svg') 12 12, pointer;
     }
 
     html {
@@ -62,7 +67,6 @@
       transform: scale(1.35);
     }
 
-    /* Ícono Home SVG al doble de tamaño */
     .nav-icon {
       width: 36px;
       height: 36px;
@@ -100,7 +104,6 @@
       width: 100%;
       height: auto;
       display: block;
-      cursor: pointer;
       transition: transform 0.4s ease;
     }
 
@@ -173,7 +176,6 @@
       font-family: 'Space Mono', monospace;
       font-size: 13px;
       text-transform: lowercase;
-      cursor: pointer;
       color: #111111;
       transition: background 0.2s, color 0.2s;
     }
@@ -197,7 +199,6 @@
 </head>
 <body>
 
-  <!-- Barra de navegación con ícono SVG para Home -->
   <header class="header">
     <nav class="nav-links">
       <a href="#home" title="home" aria-label="home">
@@ -209,7 +210,6 @@
     </nav>
   </header>
 
-  <!-- Portada con WebM -->
   <main class="hero" id="home">
     <video class="hero-video" autoplay muted playsinline>
       <source src="Recursos/logo1.webm" type="video/webm">
@@ -217,28 +217,24 @@
     </video>
   </main>
 
-  <!-- Video 1 -->
   <section class="video-box">
     <video autoplay loop muted playsinline>
       <source src="Recursos/video1.mp4?v=2" type="video/mp4">
     </video>
   </section>
 
-  <!-- Video 2 -->
   <section class="video-box">
     <video autoplay loop muted playsinline>
       <source src="Recursos/video2.mp4?v=2" type="video/mp4">
     </video>
   </section>
 
-  <!-- Video 3 -->
   <section class="video-box">
     <video autoplay loop muted playsinline>
       <source src="Recursos/video3.mp4?v=2" type="video/mp4">
     </video>
   </section>
 
-  <!-- Contacto -->
   <section class="contact" id="contacto">
     <form>
       <h2>// contacto</h2>
