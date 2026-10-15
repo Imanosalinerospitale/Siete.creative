@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>sie7e</title>
 
   <!-- Favicon SVG -->
@@ -19,7 +19,8 @@
       padding: 100px 0 40px;
       display: flex;
       justify-content: center;
-      overflow: hidden;
+      align-items: center;
+      overflow: hidden; /* Frena desborde de zoom */
     }
 
     .hero-video {
@@ -31,6 +32,7 @@
       transform-origin: center center;
     }
 
+    /* Zoom del 15% al terminar el video */
     .hero-video.zoomed {
       transform: scale(1.15);
     }
@@ -40,6 +42,7 @@
       display: flex;
       justify-content: center;
       overflow: hidden;
+      background-color: #ece6e6;
     }
 
     .video-box video {
@@ -49,11 +52,13 @@
       transition: transform 0.4s ease;
     }
 
-    .video-box video:hover {
-      transform: scale(1.05);
+    @media (hover: hover) and (pointer: fine) {
+      .video-box video:hover {
+        transform: scale(1.05);
+      }
     }
 
-    /* Contacto con compensación de scroll y altura completa */
+    /* Contacto */
     .contact {
       min-height: 100vh;
       padding: 140px 24px 100px;
@@ -99,7 +104,7 @@
       background: transparent;
       padding: 6px 0;
       font: inherit;
-      font-size: 14px;
+      font-size: 16px; /* 16px evita el zoom forzado en Safari/iOS al tocar para escribir */
       outline: none;
     }
 
@@ -112,11 +117,13 @@
       align-self: flex-start;
       background: transparent;
       border: 1px solid #111111;
-      padding: 10px 24px;
+      padding: 12px 28px;
       font: inherit;
-      font-size: 13px;
+      font-size: 14px;
       text-transform: lowercase;
       transition: background 0.2s, color 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
     }
 
     .btn:hover {
@@ -124,10 +131,20 @@
       color: #ece6e6;
     }
 
+    /* Ajustes específicos de index para móviles */
     @media (max-width: 600px) {
-      .hero { padding: 75px 0 24px; }
-      .hero-video { width: 90%; }
-      .contact { padding: 110px 16px 60px; scroll-margin-top: 60px; }
+      .hero {
+        padding: 70px 0 20px;
+      }
+
+      .hero-video {
+        width: 82%; /* Proporción más equilibrada en vertical */
+      }
+
+      .contact {
+        padding: 100px 20px 60px;
+        scroll-margin-top: 60px;
+      }
     }
   </style>
 </head>
@@ -142,10 +159,10 @@
     </nav>
   </header>
 
-  <!-- Portada / Logo WebM -->
+  <!-- Portada / Logo WebM actualizado a logo2.webm -->
   <main class="hero" id="home">
     <video id="logo-video" class="hero-video" autoplay muted playsinline>
-      <source src="Recursos/logo1.webm" type="video/webm">
+      <source src="Recursos/logo2.webm" type="video/webm">
     </video>
   </main>
 
