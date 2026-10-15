@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio</title>
+  <title>Nosotros</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,20 +14,22 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      cursor: url('Recursos/cursor.svg') 12 12, auto;
     }
 
-    html {
-      scroll-behavior: smooth;
+    a, button {
+      cursor: url('Recursos/cursor.svg') 12 12, pointer;
     }
 
     body {
       background-color: #ece6e6;
       font-family: 'Space Mono', monospace;
       color: #111111;
-      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Navegación fija */
     .header {
       position: fixed;
       top: 0;
@@ -62,125 +64,36 @@
       transform: scale(1.35);
     }
 
-    /* Ícono Home SVG al doble de tamaño */
     .nav-icon {
       width: 36px;
       height: 36px;
       display: block;
     }
 
-    /* Logo .webm en hero */
-    .hero {
-      width: 100%;
-      padding-top: 100px;
-      padding-bottom: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-video {
-      width: 68%;
-      max-width: 850px;
-      height: auto;
-      display: block;
-      pointer-events: none;
-    }
-
-    /* Videos en bucle */
-    .video-box {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .video-box video {
-      width: 100%;
-      height: auto;
-      display: block;
-      cursor: pointer;
-      transition: transform 0.4s ease;
-    }
-
-    .video-box video:hover {
-      transform: scale(1.05);
-    }
-
-    /* Contacto */
-    .contact {
-      min-height: 100vh;
-      padding: 100px 24px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #ece6e6;
-    }
-
-    .contact form {
-      width: 100%;
-      max-width: 520px;
+    .content-section {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      justify-content: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 24px 60px;
     }
 
-    .contact h2 {
-      font-size: 18px;
+    h1 {
+      font-size: 20px;
       font-weight: 400;
       text-transform: lowercase;
-      margin-bottom: 8px;
+      margin-bottom: 32px;
     }
 
-    .field {
+    .bio-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #222222;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-    }
-
-    .field label {
-      font-size: 12px;
-      text-transform: lowercase;
-      color: #555555;
-    }
-
-    .field input,
-    .field textarea {
-      width: 100%;
-      border: none;
-      border-bottom: 1px solid #111111;
-      border-radius: 0;
-      background: transparent;
-      padding: 6px 0;
-      font-family: 'Space Mono', monospace;
-      font-size: 14px;
-      color: #111111;
-      outline: none;
-    }
-
-    .field textarea {
-      resize: vertical;
-      min-height: 70px;
-    }
-
-    .btn {
-      align-self: flex-start;
-      margin-top: 8px;
-      background: transparent;
-      border: 1px solid #111111;
-      padding: 10px 24px;
-      font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      text-transform: lowercase;
-      cursor: pointer;
-      color: #111111;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .btn:hover {
-      background: #111111;
-      color: #ece6e6;
+      gap: 20px;
     }
 
     @media (max-width: 600px) {
@@ -189,74 +102,30 @@
       .nav-links a { font-size: 14px; }
       .nav-links a:hover { transform: scale(1.2); }
       .nav-icon { width: 30px; height: 30px; }
-      .hero { padding-top: 75px; padding-bottom: 24px; }
-      .hero-video { width: 90%; }
-      .contact { padding: 80px 16px 40px; }
+      .content-section { padding: 90px 20px 40px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Barra de navegación con ícono SVG para Home -->
   <header class="header">
     <nav class="nav-links">
-      <a href="#home" title="home" aria-label="home">
+      <a href="index.html" title="home" aria-label="home">
         <img src="Recursos/home.svg" alt="home" class="nav-icon">
       </a>
       <a href="nosotros.html">nosotros</a>
       <a href="proyectos.html">proyectos</a>
-      <a href="#contacto">contacto</a>
+      <a href="index.html#contacto">contacto</a>
     </nav>
   </header>
 
-  <!-- Portada con WebM -->
-  <main class="hero" id="home">
-    <video class="hero-video" autoplay muted playsinline>
-      <source src="Recursos/logo1.webm" type="video/webm">
-      Tu navegador no soporta video WebM.
-    </video>
+  <main class="content-section">
+    <h1>// nosotros</h1>
+    <div class="bio-text">
+      <p>Texto de presentación o manifiesto del estudio / productora.</p>
+      <p>Espacio disponible para bio, equipo o visión conceptual.</p>
+    </div>
   </main>
-
-  <!-- Video 1 -->
-  <section class="video-box">
-    <video autoplay loop muted playsinline>
-      <source src="Recursos/video1.mp4?v=2" type="video/mp4">
-    </video>
-  </section>
-
-  <!-- Video 2 -->
-  <section class="video-box">
-    <video autoplay loop muted playsinline>
-      <source src="Recursos/video2.mp4?v=2" type="video/mp4">
-    </video>
-  </section>
-
-  <!-- Video 3 -->
-  <section class="video-box">
-    <video autoplay loop muted playsinline>
-      <source src="Recursos/video3.mp4?v=2" type="video/mp4">
-    </video>
-  </section>
-
-  <!-- Contacto -->
-  <section class="contact" id="contacto">
-    <form>
-      <h2>// contacto</h2>
-      <div class="field">
-        <label for="nombre">nombre</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </div>
-      <div class="field">
-        <label for="email">email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="field">
-        <label for="mensaje">mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="btn">enviar -></button>
-    </form>
-  </section>
 
 </body>
 </html>
