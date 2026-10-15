@@ -9,8 +9,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .hero { width: 100%; padding: 100px 0 40px; display: flex; justify-content: center; }
-    .hero-video { width: 68%; max-width: 850px; height: auto; pointer-events: none; }
+    .hero { 
+      width: 100%; 
+      padding: 100px 0 40px; 
+      display: flex; 
+      justify-content: center; 
+      overflow: hidden; /* Evita que el zoom del logo genere scroll horizontal */
+    }
+    .hero-video { 
+      width: 68%; 
+      max-width: 850px; 
+      height: auto; 
+      pointer-events: none; 
+      /* Transición para el zoom suave de 1.5 segundos (ease-out hace que empiece normal y frene con suavidad) */
+      transition: transform 1.5s cubic-bezier(0.25, 1, 0.50, 1); 
+      transform-origin: center center; /* El zoom se realiza desde el centro */
+    }
+    
+    /* Esta clase se activará desde JavaScript al terminar el video */
+    .hero-video.zoomed {
+      transform: scale(1.15); /* Aumenta un 15% su tamaño */
+    }
+
     .video-box { width: 100%; display: flex; justify-content: center; overflow: hidden; }
     .video-box video { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
     .video-box video:hover { transform: scale(1.05); }
@@ -40,7 +60,8 @@
   </header>
 
   <main class="hero" id="home">
-    <video class="hero-video" autoplay muted playsinline>
+    <!-- Se agregó id="logo-video" para poder llamarlo desde el script -->
+    <video id="logo-video" class="hero-video" autoplay muted playsinline>
       <source src="Recursos/logo1.webm" type="video/webm">
     </video>
   </main>
@@ -58,5 +79,15 @@
       <button type="submit" class="btn">enviar -></button>
     </form>
   </section>
+
+  <!-- Script que detecta el final del video y activa la clase 'zoomed' -->
+  <script>
+    const logoVideo = document.getElementById('logo-video');
+    if (logoVideo) {
+      logoVideo.addEventListener('ended', function() {
+        logoVideo.classList.add('zoomed');
+      });
+    }
+  </script>
 </body>
 </html>
