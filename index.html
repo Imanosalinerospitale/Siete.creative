@@ -43,11 +43,13 @@
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 48px;
     }
 
     .nav-links a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
       color: #111111;
       font-size: 17px;
@@ -60,7 +62,14 @@
       transform: scale(1.35);
     }
 
-    /* Logo .webm: una sola reproducción, centrado y más grande */
+    /* Ícono Home SVG */
+    .nav-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    /* Logo .webm en hero */
     .hero {
       width: 100%;
       padding-top: 100px;
@@ -75,10 +84,10 @@
       max-width: 850px;
       height: auto;
       display: block;
-      pointer-events: none; /* Evita que el usuario pause o cliquee accidentalmente sobre el logo */
+      pointer-events: none;
     }
 
-    /* Videos en loop al 100% */
+    /* Videos en bucle */
     .video-box {
       width: 100%;
       display: flex;
@@ -99,7 +108,7 @@
       transform: scale(1.05);
     }
 
-    /* Formulario de contacto */
+    /* Contacto */
     .contact {
       min-height: 100vh;
       padding: 100px 24px 60px;
@@ -179,6 +188,7 @@
       .nav-links { gap: 20px; }
       .nav-links a { font-size: 14px; }
       .nav-links a:hover { transform: scale(1.2); }
+      .nav-icon { width: 16px; height: 16px; }
       .hero { padding-top: 75px; padding-bottom: 24px; }
       .hero-video { width: 90%; }
       .contact { padding: 80px 16px 40px; }
@@ -187,17 +197,19 @@
 </head>
 <body>
 
-  <!-- Barra de navegación -->
+  <!-- Barra de navegación con ícono SVG para Home -->
   <header class="header">
     <nav class="nav-links">
-      <a href="#home">home</a>
+      <a href="#home" title="home" aria-label="home">
+        <img src="Recursos/home.svg" alt="home" class="nav-icon">
+      </a>
       <a href="nosotros.html">nosotros</a>
       <a href="proyectos.html">proyectos</a>
       <a href="#contacto">contacto</a>
     </nav>
   </header>
 
-  <!-- Portada con video WebM (se reproduce 1 vez y frena al final) -->
+  <!-- Portada con WebM -->
   <main class="hero" id="home">
     <video class="hero-video" autoplay muted playsinline>
       <source src="Recursos/logo1.webm" type="video/webm">
@@ -226,7 +238,7 @@
     </video>
   </section>
 
-  <!-- Sección Contacto -->
+  <!-- Contacto -->
   <section class="contact" id="contacto">
     <form>
       <h2>// contacto</h2>
