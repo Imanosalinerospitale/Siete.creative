@@ -14,11 +14,15 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      cursor: url('Recursos/cursor.svg') 12 12, auto;
     }
 
-    a, button, video, input, textarea {
-      cursor: url('Recursos/cursor.svg') 12 12, pointer;
+    /* Regla de cursor personalizada robusta */
+    html, body {
+      cursor: url('Recursos/cursor.svg') 0 0, auto;
+    }
+
+    a, button, video, input, textarea, .nav-icon {
+      cursor: url('Recursos/cursor.svg') 0 0, pointer;
     }
 
     html {
@@ -32,13 +36,13 @@
       overflow-x: hidden;
     }
 
-    /* Navegación fija */
+    /* Navegación fija con centrado vertical absoluto */
     .header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      padding: 24px 20px;
+      padding: 16px 20px;
       display: flex;
       justify-content: center;
       background: rgba(236, 230, 230, 0.95);
@@ -48,16 +52,18 @@
 
     .nav-links {
       display: flex;
-      align-items: center;
+      align-items: center; /* Alinea los centros de todos los elementos */
       gap: 48px;
     }
 
     .nav-links a {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       text-decoration: none;
       color: #111111;
       font-size: 17px;
+      line-height: 1; /* Elimina desajustes de línea en el texto */
       text-transform: lowercase;
       letter-spacing: -0.2px;
       transition: transform 0.2s ease;
@@ -67,18 +73,19 @@
       transform: scale(1.35);
     }
 
-    /* Ícono Home agrandado */
+    /* Ícono Home llevado a 70px y centrado exacto */
     .nav-icon {
-      width: 54px;
-      height: 54px;
+      width: 70px;
+      height: 70px;
       display: block;
       object-fit: contain;
+      vertical-align: middle;
     }
 
-    /* Logo .webm en hero */
+    /* Portada / Hero */
     .hero {
       width: 100%;
-      padding-top: 100px;
+      padding-top: 120px; /* Ajustado para que el ícono de 70px no tape el contenido */
       padding-bottom: 40px;
       display: flex;
       align-items: center;
@@ -93,7 +100,7 @@
       pointer-events: none;
     }
 
-    /* Videos en bucle */
+    /* Videos en loop */
     .video-box {
       width: 100%;
       display: flex;
@@ -188,12 +195,12 @@
     }
 
     @media (max-width: 600px) {
-      .header { padding: 16px 12px; }
+      .header { padding: 12px 10px; }
       .nav-links { gap: 20px; }
       .nav-links a { font-size: 14px; }
       .nav-links a:hover { transform: scale(1.2); }
-      .nav-icon { width: 40px; height: 40px; }
-      .hero { padding-top: 75px; padding-bottom: 24px; }
+      .nav-icon { width: 48px; height: 48px; }
+      .hero { padding-top: 90px; padding-bottom: 24px; }
       .hero-video { width: 90%; }
       .contact { padding: 80px 16px 40px; }
     }
