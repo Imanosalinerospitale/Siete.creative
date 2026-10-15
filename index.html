@@ -33,7 +33,7 @@
       transform-origin: center center;
     }
 
-    /* Zoom del 15% al terminar el video */
+    /* Zoom del 15% al finalizar el video */
     .hero-video.zoomed {
       transform: scale(1.15);
     }
@@ -106,7 +106,7 @@
       background: transparent;
       padding: 6px 0;
       font: inherit;
-      font-size: 16px;
+      font-size: 16px; /* Evita zoom molesto en iOS */
       outline: none;
     }
 
@@ -160,7 +160,7 @@
     </nav>
   </header>
 
-  <!-- Portada / Logo WebM con atributos móviles estrictos -->
+  <!-- Portada / Logo con doble fuente: logo2.mov para Safari/iOS y logo2.webm para Chrome/Android -->
   <main class="hero" id="home">
     <video 
       id="logo-video" 
@@ -171,108 +171,10 @@
       webkit-playsinline 
       disablepictureinpicture 
       preload="auto">
+      <source src="Recursos/logo2.mov" type='video/mp4; codecs="hvc1"'>
       <source src="Recursos/logo2.webm" type="video/webm">
     </video>
   </main>
 
-  <!-- Videos de muestra con atributos móviles estrictos -->
-  <section class="video-box">
-    <video 
-      class="autoplay-video" 
-      autoplay 
-      loop 
-      muted 
-      playsinline 
-      webkit-playsinline 
-      disablepictureinpicture 
-      preload="auto">
-      <source src="Recursos/video1.mp4?v=2" type="video/mp4">
-    </video>
-  </section>
-
-  <section class="video-box">
-    <video 
-      class="autoplay-video" 
-      autoplay 
-      loop 
-      muted 
-      playsinline 
-      webkit-playsinline 
-      disablepictureinpicture 
-      preload="auto">
-      <source src="Recursos/video2.mp4?v=2" type="video/mp4">
-    </video>
-  </section>
-
-  <section class="video-box">
-    <video 
-      class="autoplay-video" 
-      autoplay 
-      loop 
-      muted 
-      playsinline 
-      webkit-playsinline 
-      disablepictureinpicture 
-      preload="auto">
-      <source src="Recursos/video3.mp4?v=2" type="video/mp4">
-    </video>
-  </section>
-
-  <!-- Contacto -->
-  <section class="contact" id="contacto">
-    <form>
-      <h2>// contacto</h2>
-      <div class="field">
-        <label for="nombre">nombre</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </div>
-      <div class="field">
-        <label for="email">email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="field">
-        <label for="mensaje">mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="btn">enviar -></button>
-    </form>
-  </section>
-
-  <script>
-    // 1. Zoom al terminar el logo
-    const logoVideo = document.getElementById('logo-video');
-    if (logoVideo) {
-      logoVideo.addEventListener('ended', function() {
-        logoVideo.classList.add('zoomed');
-      });
-    }
-
-    // 2. Forzar autoplay en celulares (elimina el botón de play nativo)
-    const allVideos = document.querySelectorAll('video');
-    allVideos.forEach(v => {
-      v.muted = true;
-      v.defaultMuted = true;
-      const playPromise = v.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Si el navegador móvil aún intenta bloquearlo, se activa en el primer toque de pantalla
-          document.addEventListener('touchstart', () => {
-            v.play();
-          }, { once: true });
-        });
-      }
-    });
-
-    // 3. Scroll suave a contacto
-    const contactLink = document.getElementById('link-contacto');
-    const contactSection = document.getElementById('contacto');
-    if (contactLink && contactSection) {
-      contactLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        history.pushState(null, null, '#contacto');
-      });
-    }
-  </script>
-</body>
-</html>
+  <!-- Videos en bucle -->
+  <section class="video-box
