@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>SIE7E Creativo</title>
+  <meta name="description" content="sie7e es una productora y colectivo artístico: cine, videoclips y artworks.">
+  <meta name="theme-color" content="#ece6e6">
+  <link rel="canonical" href="https://imanosalinerospitale.github.io/Siete.creative/">
+
+  <!-- Vista previa al compartir el link -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="SIE7E Creativo">
+  <meta property="og:description" content="Productora y colectivo artístico: cine, videoclips y artworks.">
+  <meta property="og:url" content="https://imanosalinerospitale.github.io/Siete.creative/">
+  <meta property="og:image" content="https://imanosalinerospitale.github.io/Siete.creative/Recursos/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="Recursos/favicon7.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    /* Logo */
+    .hero { width: 100%; min-height: 250px; padding: 100px 0 40px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+    .hero-video { width: 68%; max-width: 850px; height: auto; pointer-events: none; transform-origin: center; transition: transform 1.5s cubic-bezier(.25, 1, .5, 1); }
+    .hero-video.zoomed { transform: scale(1.15); } /* zoom del 15% al terminar */
+
+    /* Videos de muestra */
+    .video-box { width: 100%; overflow: hidden; }
+    .video-box video { display: block; width: 100%; height: auto; transition: transform .4s ease; }
+    .video-box video:focus-visible { outline: 2px solid #111; outline-offset: -4px; }
+    @media (hover: hover) and (pointer: fine) { .video-box video:hover { transform: scale(1.05); } }
+
+    /* Contacto */
+    .contact { min-height: 100vh; min-height: 100svh; padding: 120px 24px 18vh; display: flex; flex-direction: column; align-items: center; scroll-margin-top: 70px; }
+    .contact form { width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 28px; }
+    .contact h2 { font-size: 18px; font-weight: 400; text-transform: lowercase; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 12px; text-transform: lowercase; color: #555; }
+    .field input, .field textarea { width: 100%; border: 0; border-bottom: 1px solid #111; border-radius: 0; background: transparent; padding: 6px 0; font: inherit; font-size: 16px; outline: none; }
+    .field input:focus-visible, .field textarea:focus-visible { box-shadow: 0 2px 0 #111; }
+    .field textarea { min-height: 70px; resize: vertical; }
+    .btn { align-self: flex-start; padding: 12px 28px; background: transparent; border: 1px solid #111; border-radius: 0; color: #111; font: inherit; font-size: 14px; text-transform: lowercase; -webkit-appearance: none; transition: background .2s, color .2s; }
+    .btn:disabled { opacity: .5; }
+    @media (hover: hover) and (pointer: fine) { .btn:hover:not(:disabled) { background: #111; color: #ece6e6; } }
+    .form-status { min-height: 1.4em; font-size: 13px; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 70px 0 20px; min-height: 180px; }
+      .hero-video { width: 82%; }
+      .contact { padding: 95px 20px 22vh; scroll-margin-top: 55px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#home">sie7e</a>
+      <a href="nosotros.html">nosotros</a>
+      <a href="proyectos.html">proyectos</a>
+      <a href="#contacto">contacto</a>
+    </nav>
+  </header>
+
+  <!-- Logo -->
+  <main class="hero" id="home">
+    <video id="logo-video" class="hero-video" src="Recursos/logo2.mp4?v=4" width="1280" height="720"
+           autoplay muted playsinline disablepictureinpicture preload="auto" aria-label="SIE7E Creativo"></video>
+  </main>
+
+  <!-- Videos de muestra: se reproduce solo el visible. Clic o Enter/Espacio para pausar. -->
+  <!-- En celular se carga automáticamente la versión liviana: videoN-mobile.mp4 -->
+  <section class="video-box">
+    <video class="autoplay-video" src="Recursos/video1.mp4?v=4" poster="Recursos/poster1.jpg" width="1920" height="1010"
+           loop muted playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 1 (clic para pausar)"></video>
+  </section>
+  <section class="video-box">
+    <video class="autoplay-video" src="Recursos/video2.mp4?v=4" poster="Recursos/poster2.jpg" width="1920" height="1080"
+           loop muted playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 2 (clic para pausar)"></video>
+  </section>
+  <section class="video-box">
+    <video class="autoplay-video" src="Recursos/video3.mp4?v=4" poster="Recursos/poster3.jpg" width="1920" height="1038"
+           loop muted playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 3 (clic para pausar)"></video>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contact" id="contacto">
+    <!-- IMPORTANTE: reemplazá TU_ID por el ID de tu formulario de Formspree (formspree.io → New form) -->
+    <form id="contact-form" action="https://formspree.io/f/TU_ID" method="POST">
+      <h2>// contacto</h2>
+      <div class="field"><label for="nombre">nombre</label><input type="text" id="nombre" name="nombre" autocomplete="name" required></div>
+      <div class="field"><label for="email">email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+      <div class="field"><label for="mensaje">mensaje</label><textarea id="mensaje" name="mensaje" rows="4" required></textarea></div>
+      <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true"><!-- anti-spam -->
+      <button type="submit" class="btn" id="submit-btn">enviar -></button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <script>
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const smallScreen = matchMedia('(max-width: 700px)').matches;
+    const noop = () => {};
+    let jumping = false; // true mientras viaja a contacto: no arranca videos nuevos
+
+    /* Logo: zoom al terminar. Sin animación si la persona pidió reducir movimiento */
+    const logo = document.getElementById('logo-video');
+    if (reduceMotion) {
+      logo.removeAttribute('autoplay');
+      logo.addEventListener('loadedmetadata', () => { logo.currentTime = Math.max(0, logo.duration - 0.05); }, { once: true });
+    } else {
+      logo.addEventListener('ended', () => logo.classList.add('zoomed'));
+      logo.play().catch(() => ['touchstart', 'scroll'].forEach(ev =>
+        addEventListener(ev, () => logo.play().catch(noop), { once: true, passive: true })));
+    }
+
+    /* Videos de muestra: versión mobile, play/pausa según visibilidad, pausa manual */
+    const vids = [...document.querySelectorAll('.autoplay-video')];
+
+    const sync = v => {
+      if (reduceMotion) return;
+      if (!v._visible) v.pause();
+      else if (!v.dataset.manualPause && !jumping) v.play().catch(noop);
+    };
+
+    vids.forEach(v => {
+      if (smallScreen) v.src = v.src.replace(/\.mp4/, '-mobile.mp4');
+      if (reduceMotion) v.controls = true;
+      const toggle = () => {
+        v.dataset.manualPause = v.paused ? '' : '1';
+        v.paused ? v.play().catch(noop) : v.pause();
+      };
+      v.addEventListener('click', toggle);
+      v.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+    });
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(e => {
+        e.target._visible = e.isIntersecting;
+        sync(e.target);
+      }), { threshold: 0.35 });
+      vids.forEach(v => io.observe(v));
+    } else {
+      vids.forEach(v => { v._visible = true; sync(v); });
+    }
+
+    /* Ir a contacto: llega siempre al formulario.
+       Si la página cambia de altura mientras scrollea (videos, tipografías) el navegador
+       se queda a mitad de camino; acá se verifica al terminar y se reajusta si hace falta. */
+    const contact = document.getElementById('contacto');
+
+    const target = () => Math.max(0, Math.min(
+      contact.getBoundingClientRect().top + scrollY - (parseFloat(getComputedStyle(contact).scrollMarginTop) || 0),
+      document.documentElement.scrollHeight - innerHeight));
+
+    function goToContact(smooth) {
+      const t0 = performance.now();
+      const events = ['wheel', 'touchstart', 'keydown'];
+      let cancelled = false, last = scrollY, moved = false, still = 0, fixes = 0;
+      const cancel = () => { cancelled = true; };
+      const finish = () => {
+        jumping = false;
+        events.forEach(ev => removeEventListener(ev, cancel));
+        vids.forEach(sync);
+      };
+
+      events.forEach(ev => addEventListener(ev, cancel, { passive: true }));
+      jumping = true;
+      scrollTo({ top: target(), behavior: smooth && !reduceMotion ? 'smooth' : 'auto' });
+
+      (function watch() {
+        if (cancelled || performance.now() - t0 > 8000) return finish();
+        if (Math.abs(scrollY - last) >= 1) { moved = true; still = 0; } else { still++; }
+        last = scrollY;
+
+        // terminó de moverse (~130 ms quieto) o nunca arrancó
+        if (still >= 8 && (moved || performance.now() - t0 > 600)) {
+          if (Math.abs(scrollY - target()) <= 2 || fixes >= 5) return finish();
+          fixes++; still = 0; moved = false;
+          scrollTo({ top: target(), behavior: 'auto' });
+        }
+        requestAnimationFrame(watch);
+      })();
+    }
+
+    document.querySelectorAll('a[href="#contacto"]').forEach(a => a.addEventListener('click', e => {
+      e.preventDefault();
+      history.pushState(null, '', '#contacto');
+      goToContact(true);
+    }));
+
+    // Al llegar desde otra página (index.html#contacto)
+    if (location.hash === '#contacto') addEventListener('load', () => goToContact(false));
+
+    /* Formulario */
+    const form = document.getElementById('contact-form');
+    const btn = document.getElementById('submit-btn');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      status.textContent = 'enviando...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(res.status);
+        form.reset();
+        status.textContent = 'gracias, recibimos tu mensaje.';
+      } catch {
+        status.textContent = 'no se pudo enviar. probá de nuevo en un rato.';
+      }
+      btn.disabled = false;
+    });
+  </script>
+</body>
+</html>
