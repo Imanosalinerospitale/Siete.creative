@@ -28,12 +28,12 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid #111; outline-offset: 4
 
 /* ===== Home: logo ===== */
 .hero { width: 100%; min-height: 250px; padding: 100px 0 40px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
-.hero-video { width: 68%; max-width: 850px; height: auto; pointer-events: none; transform-origin: center; transition: transform 1.5s cubic-bezier(.25, 1, .5, 1); }
+.hero-video { width: 68%; max-width: 850px; height: auto; pointer-events: none; background: transparent !important; transform-origin: center; transition: transform 1.5s cubic-bezier(.25, 1, .5, 1); }
 .hero-video.zoomed { transform: scale(1.15); } /* zoom del 15% al terminar */
 
 /* ===== Home: videos de muestra ===== */
-.video-box { width: 100%; overflow: hidden; }
-.video-box video { display: block; width: 100%; height: auto; transition: transform .4s ease; }
+.video-box { width: 100%; overflow: hidden; background-color: #ece6e6; }
+.video-box video { display: block; width: 100%; height: auto; transition: transform .4s ease; background: transparent; }
 .video-box video:focus-visible { outline: 2px solid #111; outline-offset: -4px; }
 @media (hover: hover) and (pointer: fine) { .video-box video:hover { transform: scale(1.05); } }
 
