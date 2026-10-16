@@ -34,25 +34,27 @@
     </nav>
   </header>
 
-  <!-- Logo -->
+  <!-- Logo con soporte dual de transparencia -->
   <main class="hero" id="home">
-    <video id="logo-video" class="hero-video" src="Recursos/logo2.mp4?v=4" width="1280" height="720"
-           autoplay muted playsinline disablepictureinpicture preload="auto" aria-label="SIE7E Creativo"></video>
+    <video id="logo-video" class="hero-video" width="1280" height="720"
+           autoplay muted playsinline webkit-playsinline disablepictureinpicture preload="auto" aria-label="SIE7E Creativo">
+      <source src="Recursos/logo2.mov" type='video/mp4; codecs="hvc1"'>
+      <source src="Recursos/logo2.webm" type="video/webm">
+    </video>
   </main>
 
-  <!-- Videos de muestra: se reproduce solo el visible. Clic o Enter/Espacio para pausar. -->
-  <!-- En celular se carga automáticamente la versión liviana: videoN-mobile.mp4 -->
+  <!-- Videos de muestra: reproducción según visibilidad. Clic o Enter/Espacio para pausar. -->
   <section class="video-box">
     <video class="autoplay-video" src="Recursos/video1.mp4?v=4" poster="Recursos/poster1.jpg" width="1920" height="1010"
-           loop muted playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 1 (clic para pausar)"></video>
+           loop muted playsinline webkit-playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 1 (clic para pausar)"></video>
   </section>
   <section class="video-box">
     <video class="autoplay-video" src="Recursos/video2.mp4?v=4" poster="Recursos/poster2.jpg" width="1920" height="1080"
-           loop muted playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 2 (clic para pausar)"></video>
+           loop muted playsinline webkit-playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 2 (clic para pausar)"></video>
   </section>
   <section class="video-box">
     <video class="autoplay-video" src="Recursos/video3.mp4?v=4" poster="Recursos/poster3.jpg" width="1920" height="1038"
-           loop muted playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 3 (clic para pausar)"></video>
+           loop muted playsinline webkit-playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 3 (clic para pausar)"></video>
   </section>
 
   <!-- Contacto -->
@@ -71,7 +73,7 @@
 
   <script>
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const smallScreen = matchMedia('(max-width: 700px)').matches;
+    const smallScreen = matchMedia('(max-width: 600px)').matches; // Unificado con style.css (600px)
     const noop = () => {};
     let jumping = false; // true mientras viaja a contacto: no arranca videos nuevos
 
@@ -86,7 +88,7 @@
         addEventListener(ev, () => logo.play().catch(noop), { once: true, passive: true })));
     }
 
-    /* Videos de muestra: versión mobile, play/pausa según visibilidad, pausa manual */
+    /* Videos de muestra: versión mobile segura, play/pausa según visibilidad, pausa manual */
     const vids = [...document.querySelectorAll('.autoplay-video')];
 
     const sync = v => {
@@ -96,7 +98,18 @@
     };
 
     vids.forEach(v => {
-      if (smallScreen) v.src = v.src.replace(/\.mp4/, '-mobile.mp4');
+      if (smallScreen) {
+        const originalSrc = v.src;
+        // Intenta cargar la versión mobile; si falla (404), vuelve al video original para no romper la pantalla
+        v.addEventListener('error', () => {
+          if (v.src.includes('-mobile.mp4')) {
+            v.src = originalSrc;
+            v.load();
+          }
+        }, { once: true });
+        v.src = originalSrc.replace(/\.mp4/, '-mobile.mp4');
+      }
+
       if (reduceMotion) v.controls = true;
       const toggle = () => {
         v.dataset.manualPause = v.paused ? '' : '1';
@@ -116,9 +129,7 @@
       vids.forEach(v => { v._visible = true; sync(v); });
     }
 
-    /* Ir a contacto: llega siempre al formulario.
-       Si la página cambia de altura mientras scrollea (videos, tipografías) el navegador
-       se queda a mitad de camino; acá se verifica al terminar y se reajusta si hace falta. */
+    /* Ir a contacto con compensación dinámica de desplazamiento */
     const contact = document.getElementById('contacto');
 
     const target = () => Math.max(0, Math.min(
@@ -145,7 +156,6 @@
         if (Math.abs(scrollY - last) >= 1) { moved = true; still = 0; } else { still++; }
         last = scrollY;
 
-        // terminó de moverse (~130 ms quieto) o nunca arrancó
         if (still >= 8 && (moved || performance.now() - t0 > 600)) {
           if (Math.abs(scrollY - target()) <= 2 || fixes >= 5) return finish();
           fixes++; still = 0; moved = false;
@@ -161,10 +171,9 @@
       goToContact(true);
     }));
 
-    // Al llegar desde otra página (index.html#contacto)
     if (location.hash === '#contacto') addEventListener('load', () => goToContact(false));
 
-    /* Formulario */
+    /* Envío del Formulario a Formspree */
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
     const status = document.getElementById('form-status');
