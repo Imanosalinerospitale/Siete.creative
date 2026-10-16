@@ -24,12 +24,10 @@
 
     .content-section {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 760px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 130px 24px 80px;
+      width: 100%;
     }
 
     h1 {
@@ -37,6 +35,7 @@
     }
 
     .bio-text {
+      max-width: 760px;
       font-size: 15px;
       line-height: 1.85;
       color: #222222;
@@ -50,6 +49,76 @@
       color: #111111;
     }
 
+    /* Línea delgada divisoria */
+    .divider {
+      border: 0;
+      border-top: 1px solid #111111;
+      margin: 64px 0 48px;
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    .team-section h2 {
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: lowercase;
+      margin-bottom: 32px;
+    }
+
+    /* Cuadrícula de integrantes */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .team-card {
+      border: 1px solid #111111;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: transparent;
+    }
+
+    /* Espacio para foto retrato (relación 4:5 vertical) */
+    .team-photo-container {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: rgba(17, 17, 17, 0.05);
+      border: 1px dashed rgba(17, 17, 17, 0.3);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .team-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .team-name {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: lowercase;
+      color: #111111;
+    }
+
+    .team-role {
+      font-size: 12px;
+      color: #555555;
+      text-transform: lowercase;
+    }
+
     @media (max-width: 600px) {
       .content-section { 
         padding: 95px 20px 50px; 
@@ -58,6 +127,13 @@
         font-size: 14px;
         line-height: 1.75;
         gap: 18px;
+      }
+      .divider {
+        margin: 48px 0 36px;
+      }
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
       }
     }
   </style>
@@ -84,6 +160,72 @@
       <p>Nos paramos desde el lado de <strong>artistas</strong>, no solo realizadores o técnicos: escuchamos música, estudiamos cine y vemos películas, tocamos instrumentos, filmamos y sacamos fotos <strong>porque nos gusta</strong>. Con los años, cada uno de nosotros fue forjando su propia identidad en lo que hace, más allá de si ese arte se vende o no. Pensar y encarar el trabajo de un cliente con esa cabeza y sensibilidad de artista es lo que nos despega de una productora tradicional.</p>
       <p>Contratamos técnicos profesionales que confían en nosotros y viceversa. Entienden nuestra mirada y construimos así con cada proyecto una gran red que los hace parte también de <strong>SIE7E</strong> y de su identidad.</p>
     </article>
+
+    <!-- Línea divisoria -->
+    <hr class="divider">
+
+    <!-- Sección Equipo -->
+    <section class="team-section">
+      <h2>// equipo</h2>
+      <div class="team-grid">
+
+        <!-- 1. Rosario Gonzalez Leaniz -->
+        <div class="team-card">
+          <div class="team-photo-container">
+            <!-- Cuando tengas la foto poné: <img src="Recursos/rosario.jpg" alt="Rosario Gonzalez Leaniz"> -->
+          </div>
+          <div class="team-info">
+            <span class="team-name">Rosario Gonzalez Leaniz</span>
+            <span class="team-role">dirección</span>
+          </div>
+        </div>
+
+        <!-- 2. Valentin Ledesma -->
+        <div class="team-card">
+          <div class="team-photo-container">
+            <!-- <img src="Recursos/valentin.jpg" alt="Valentin Ledesma"> -->
+          </div>
+          <div class="team-info">
+            <span class="team-name">Valentin Ledesma</span>
+            <span class="team-role">producción</span>
+          </div>
+        </div>
+
+        <!-- 3. Francisco Cholaky -->
+        <div class="team-card">
+          <div class="team-photo-container">
+            <!-- <img src="Recursos/francisco.jpg" alt="Francisco Cholaky"> -->
+          </div>
+          <div class="team-info">
+            <span class="team-name">Francisco Cholaky</span>
+            <span class="team-role">dirección</span>
+          </div>
+        </div>
+
+        <!-- 4. Imanol Salinero Spitale -->
+        <div class="team-card">
+          <div class="team-photo-container">
+            <!-- <img src="Recursos/imanol.jpg" alt="Imanol Salinero Spitale"> -->
+          </div>
+          <div class="team-info">
+            <span class="team-name">Imanol Salinero Spitale</span>
+            <span class="team-role">producción</span>
+          </div>
+        </div>
+
+        <!-- 5. Valentina Dominguez -->
+        <div class="team-card">
+          <div class="team-photo-container">
+            <!-- <img src="Recursos/valentina.jpg" alt="Valentina Dominguez"> -->
+          </div>
+          <div class="team-info">
+            <span class="team-name">Valentina Dominguez</span>
+            <span class="team-role">dirección</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </main>
 
 </body>
