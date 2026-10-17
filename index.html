@@ -120,20 +120,6 @@
       else if (!v.dataset.manualPause && !jumping) v.play().catch(noop);
     };
 
-    vids.forEach(v => {
-      if (smallScreen) {
-        v.src = v.src.replace(/\.mp4/, '-mobile.mp4');
-      }
-
-      if (reduceMotion) v.controls = true;
-      const toggle = () => {
-        v.dataset.manualPause = v.paused ? '' : '1';
-        v.paused ? v.play().catch(noop) : v.pause();
-      };
-      v.addEventListener('click', toggle);
-      v.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
-    });
-
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(entries => entries.forEach(e => {
         e.target._visible = e.isIntersecting;
