@@ -59,25 +59,34 @@
 
   <!-- Contacto -->
   <section class="contact" id="contacto">
-    <!-- IMPORTANTE: reemplazá TU_ID por el ID de tu formulario de Formspree (formspree.io → New form) -->
+    <!-- IMPORTANTE: reemplazá TU_ID por el ID de tu formulario de Formspree -->
     <form id="contact-form" action="https://formspree.io/f/TU_ID" method="POST">
       <h2>// contacto</h2>
       <div class="field"><label for="nombre">nombre</label><input type="text" id="nombre" name="nombre" autocomplete="name" required></div>
       <div class="field"><label for="email">email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
       <div class="field"><label for="mensaje">mensaje</label><textarea id="mensaje" name="mensaje" rows="4" required></textarea></div>
-      <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true"><!-- anti-spam -->
+      <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit" class="btn" id="submit-btn">enviar -></button>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
     </form>
   </section>
 
+  <!-- Footer Global -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>córdoba, argentina</span>
+      <a href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener noreferrer">instagram</a>
+      <span>web desarrollada por sie7e</span>
+      <span>© 2026 sie7e. todos los derechos reservados.</span>
+    </div>
+  </footer>
+
   <script>
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const smallScreen = matchMedia('(max-width: 600px)').matches; // Unificado con style.css (600px)
+    const smallScreen = matchMedia('(max-width: 600px)').matches;
     const noop = () => {};
-    let jumping = false; // true mientras viaja a contacto: no arranca videos nuevos
+    let jumping = false;
 
-    /* Logo: zoom al terminar. Sin animación si la persona pidió reducir movimiento */
     const logo = document.getElementById('logo-video');
     if (reduceMotion) {
       logo.removeAttribute('autoplay');
@@ -88,7 +97,6 @@
         addEventListener(ev, () => logo.play().catch(noop), { once: true, passive: true })));
     }
 
-    /* Videos de muestra: versión mobile segura, play/pausa según visibilidad, pausa manual */
     const vids = [...document.querySelectorAll('.autoplay-video')];
 
     const sync = v => {
@@ -100,7 +108,6 @@
     vids.forEach(v => {
       if (smallScreen) {
         const originalSrc = v.src;
-        // Intenta cargar la versión mobile; si falla (404), vuelve al video original para no romper la pantalla
         v.addEventListener('error', () => {
           if (v.src.includes('-mobile.mp4')) {
             v.src = originalSrc;
@@ -129,9 +136,7 @@
       vids.forEach(v => { v._visible = true; sync(v); });
     }
 
-    /* Ir a contacto con compensación dinámica de desplazamiento */
     const contact = document.getElementById('contacto');
-
     const target = () => Math.max(0, Math.min(
       contact.getBoundingClientRect().top + scrollY - (parseFloat(getComputedStyle(contact).scrollMarginTop) || 0),
       document.documentElement.scrollHeight - innerHeight));
@@ -173,7 +178,6 @@
 
     if (location.hash === '#contacto') addEventListener('load', () => goToContact(false));
 
-    /* Envío del Formulario a Formspree */
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
     const status = document.getElementById('form-status');
@@ -193,14 +197,5 @@
       btn.disabled = false;
     });
   </script>
-  <!-- Footer Global -->
-  <footer class="footer">
-    <div class="footer-content">
-      <span>córdoba, argentina</span>
-      <a href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener noreferrer">instagram</a>
-      <span>web desarrollada por sie7e</span>
-      <span>© 2026 sie7e. todos los derechos reservados.</span>
-    </div>
-  </footer>
 </body>
 </html>
