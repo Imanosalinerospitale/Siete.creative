@@ -7,9 +7,7 @@
   <meta name="description" content="Proyectos de sie7e: cine, videoclips y artworks.">
   <meta name="theme-color" content="#ece6e6">
 
-  <!-- Favicon SVG -->
   <link rel="icon" type="image/svg+xml" href="Recursos/favicon7.svg">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -18,12 +16,16 @@
   <style>
     body {
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .projects-container {
+      flex: 1;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 120px 24px 60px;
+      padding: 120px 24px 80px;
+      width: 100%;
     }
 
     h1 {
@@ -47,7 +49,6 @@
       transition: background 0.2s ease, transform 0.2s ease;
     }
 
-    /* El efecto hover solo aplica cuando la tarjeta es un link (<a>) */
     a.project-card:focus-visible {
       background: #111111;
       color: #ece6e6;
@@ -74,7 +75,7 @@
     }
 
     @media (max-width: 600px) {
-      .projects-container { padding: 90px 16px 40px; }
+      .projects-container { padding: 90px 16px 50px; }
     }
   </style>
 </head>
@@ -92,11 +93,6 @@
   <main class="projects-container">
     <h1>// proyectos</h1>
 
-    <!--
-      Cuando tengas la página o el video de cada proyecto, cambiá el <div> por un <a>:
-      <a class="project-card" href="proyecto-01.html"> ... </a>
-      y ahí se activa el efecto hover automáticamente.
-    -->
     <div class="projects-grid">
       <div class="project-card">
         <span class="project-title">Proyecto 01</span>
@@ -112,6 +108,16 @@
       </div>
     </div>
   </main>
+
+  <!-- Footer Global -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>córdoba, argentina</span>
+      <a href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener noreferrer">instagram</a>
+      <span>web desarrollada por sie7e</span>
+      <span>© 2026 sie7e. todos los derechos reservados.</span>
+    </div>
+  </footer>
 
 </body>
 </html>
