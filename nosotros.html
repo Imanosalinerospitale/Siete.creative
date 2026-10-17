@@ -7,7 +7,9 @@
   <meta name="description" content="Quiénes somos: sie7e, colectivo artístico y productora audiovisual en Córdoba.">
   <meta name="theme-color" content="#ece6e6">
 
+  <!-- Favicon SVG -->
   <link rel="icon" type="image/svg+xml" href="Recursos/favicon7.svg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -47,6 +49,7 @@
       color: #111111;
     }
 
+    /* Línea delgada divisoria */
     .divider {
       border: 0;
       border-top: 1px solid #111111;
@@ -62,26 +65,27 @@
       margin-bottom: 32px;
     }
 
+    /* Cuadrícula limpia sin bordes de tarjeta */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 40px 32px;
     }
 
     .team-card {
-      border: 1px solid #111111;
-      padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       background: transparent;
+      border: none;
+      padding: 0;
     }
 
+    /* Espacio para la foto retrato */
     .team-photo-container {
       width: 100%;
       aspect-ratio: 4 / 5;
       background: rgba(17, 17, 17, 0.05);
-      border: 1px dashed rgba(17, 17, 17, 0.3);
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -128,7 +132,7 @@
       }
       .team-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 36px;
       }
     }
   </style>
@@ -162,7 +166,9 @@
       <h2>// equipo</h2>
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-photo-container"></div>
+          <div class="team-photo-container">
+            <!-- <img src="Recursos/rosario.jpg" alt="Rosario Gonzalez Leaniz"> -->
+          </div>
           <div class="team-info">
             <span class="team-name">Rosario Gonzalez Leaniz</span>
             <span class="team-role">dirección</span>
@@ -170,7 +176,9 @@
         </div>
 
         <div class="team-card">
-          <div class="team-photo-container"></div>
+          <div class="team-photo-container">
+            <!-- <img src="Recursos/valentin.jpg" alt="Valentin Ledesma"> -->
+          </div>
           <div class="team-info">
             <span class="team-name">Valentin Ledesma</span>
             <span class="team-role">producción</span>
@@ -178,7 +186,9 @@
         </div>
 
         <div class="team-card">
-          <div class="team-photo-container"></div>
+          <div class="team-photo-container">
+            <!-- <img src="Recursos/francisco.jpg" alt="Francisco Cholaky"> -->
+          </div>
           <div class="team-info">
             <span class="team-name">Francisco Cholaky</span>
             <span class="team-role">dirección</span>
@@ -186,7 +196,9 @@
         </div>
 
         <div class="team-card">
-          <div class="team-photo-container"></div>
+          <div class="team-photo-container">
+            <!-- <img src="Recursos/imanol.jpg" alt="Imanol Salinero Spitale"> -->
+          </div>
           <div class="team-info">
             <span class="team-name">Imanol Salinero Spitale</span>
             <span class="team-role">producción</span>
@@ -194,7 +206,9 @@
         </div>
 
         <div class="team-card">
-          <div class="team-photo-container"></div>
+          <div class="team-photo-container">
+            <!-- <img src="Recursos/valentina.jpg" alt="Valentina Dominguez"> -->
+          </div>
           <div class="team-info">
             <span class="team-name">Valentina Dominguez</span>
             <span class="team-role">dirección</span>
