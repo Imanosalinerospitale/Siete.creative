@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -33,25 +33,26 @@
     </nav>
   </header>
 
-  <!-- Logo -->
+  <!-- Logo con doble formato para transparencia nativa total -->
   <main class="hero" id="home">
     <video id="logo-video" class="hero-video" width="1280" height="720"
            autoplay muted playsinline webkit-playsinline disablepictureinpicture preload="auto" aria-label="SIE7E Creativo">
-      <source src="Recursos/logo2.mp4?v=8" type="video/mp4">
+      <source src="Recursos/logo2.mov?v=10" type='video/mp4; codecs="hvc1"'>
+      <source src="Recursos/logo2.webm?v=10" type="video/webm">
     </video>
   </main>
 
   <!-- Videos de muestra -->
   <section class="video-box">
-    <video class="autoplay-video" src="Recursos/video1.mp4?v=8" poster="Recursos/poster1.jpg" width="1920" height="1010"
+    <video class="autoplay-video" src="Recursos/video1.mp4?v=10" poster="Recursos/poster1.jpg" width="1920" height="1010"
            loop muted playsinline webkit-playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 1 (clic para pausar)"></video>
   </section>
   <section class="video-box">
-    <video class="autoplay-video" src="Recursos/video2.mp4?v=8" poster="Recursos/poster2.jpg" width="1920" height="1080"
+    <video class="autoplay-video" src="Recursos/video2.mp4?v=10" poster="Recursos/poster2.jpg" width="1920" height="1080"
            loop muted playsinline webkit-playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 2 (clic para pausar)"></video>
   </section>
   <section class="video-box">
-    <video class="autoplay-video" src="Recursos/video3.mp4?v=8" poster="Recursos/poster3.jpg" width="1920" height="1038"
+    <video class="autoplay-video" src="Recursos/video3.mp4?v=10" poster="Recursos/poster3.jpg" width="1920" height="1038"
            loop muted playsinline webkit-playsinline disablepictureinpicture preload="none" tabindex="0" aria-label="Muestra de trabajo 3 (clic para pausar)"></video>
   </section>
 
@@ -83,7 +84,7 @@
     const noop = () => {};
     let jumping = false;
 
-    /* Logo: reproducción y animación de zoom */
+    /* Logo */
     const logo = document.getElementById('logo-video');
     if (logo) {
       if (reduceMotion) {
