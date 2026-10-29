@@ -107,6 +107,7 @@ a:focus-visible, .btn:focus-visible {
   align-items: center;
   overflow: hidden;
   background-color: #ffffff;
+  isolation: isolate; /* Aísla el contexto para permitir la mezcla sin fugas */
 }
 
 .hero-video {
@@ -116,13 +117,16 @@ a:focus-visible, .btn:focus-visible {
   display: block;
   pointer-events: none;
   background: transparent !important;
-  mix-blend-mode: multiply; /* Fusión del fondo del video con el blanco de la página */
+  mix-blend-mode: multiply; /* Multiplica y elimina fondos blancos/claros */
+  filter: contrast(106%) brightness(102%); /* Quema cualquier gris residual a blanco puro */
+  transform: translateZ(0); /* Fuerza la composición de capas en GPU */
+  -webkit-transform: translateZ(0);
   transform-origin: center;
   transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .hero-video.zoomed {
-  transform: scale(1.15);
+  transform: scale(1.15) translateZ(0);
 }
 
 /* ===== Videos de Muestra ===== */
