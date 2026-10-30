@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=13">
 
   <style>
     body {
@@ -33,7 +33,6 @@
       margin-bottom: 28px;
     }
 
-    /* Grilla compacta: 3 en escritorio, 2 en tablet, 1 en mobile */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -51,7 +50,7 @@
     .project-media {
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: rgba(17, 17, 17, 0.05);
+      background: rgba(17, 17, 17, 0.08); /* Placeholder suave mientras carga */
       overflow: hidden;
       position: relative;
     }
@@ -61,8 +60,13 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.35s ease;
+      transition: opacity 0.3s ease, transform 0.35s ease;
+      opacity: 0;
       background: transparent;
+    }
+
+    .project-media video.is-ready {
+      opacity: 1;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -104,95 +108,22 @@
     <h1>// proyectos</h1>
 
     <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag1.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 1"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag2.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 2"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag3.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 3"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag4.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 4"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag5.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 5"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag6.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 6"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag7.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 7"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag8.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 8"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag9.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 9"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag10.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 10"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag11.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 11"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag12.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 12"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag13.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 13"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag14.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 14"></video>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag15.mp4" loop muted autoplay playsinline webkit-playsinline disablepictureinpicture preload="metadata" aria-label="Fragmento 15"></video>
-        </div>
-      </div>
+      <!-- Los videos no descargan nada al inicio gracias a data-src -->
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag1.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag2.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag3.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag4.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag5.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag6.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag7.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag8.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag9.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag10.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag11.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag12.mp4" loop muted playsinline preload="none" webkit-playsinline disablepictureinpicture></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag13.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag14.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
+      <div class="project-card"><div class="project-media"><video class="lazy-video" data-src="Recursos/Fragmentos/frag15.mp4" loop muted playsinline webkit-playsinline disablepictureinpicture preload="none"></video></div></div>
     </div>
   </main>
 
@@ -209,49 +140,50 @@
     const noop = () => {};
     const lazyVideos = [...document.querySelectorAll('.lazy-video')];
 
-    // Asegurar que estén en mute absoluto por API (clave para iOS)
     lazyVideos.forEach(v => {
       v.muted = true;
       v.defaultMuted = true;
     });
 
-    const playVideo = (v) => {
-      if (v.paused && !reduceMotion) {
+    const loadAndPlay = (v) => {
+      // Si aún no se asignó la fuente, se inyecta en el momento
+      if (!v.src && v.dataset.src) {
+        v.src = v.dataset.src;
+        v.load();
+      }
+
+      if (!reduceMotion && v.paused) {
         const p = v.play();
         if (p !== undefined) {
-          p.catch(noop);
+          p.then(() => {
+            v.classList.add('is-ready');
+          }).catch(noop);
         }
       }
     };
 
-    if (!reduceMotion && 'IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const v = entry.target;
           if (entry.isIntersecting) {
-            playVideo(v);
+            loadAndPlay(v);
           } else {
-            v.pause();
+            // Pausa los videos que salen de pantalla para liberar CPU/batería
+            if (!v.paused) v.pause();
           }
         });
-      }, { rootMargin: '100px 0px', threshold: 0.1 });
+      }, { 
+        // rootMargin de 200px: empieza a cargar el clip 200px ANTES de que el usuario llegue scrolleando
+        rootMargin: '200px 0px', 
+        threshold: 0.05 
+      });
 
       lazyVideos.forEach(v => io.observe(v));
+    } else {
+      // Fallback para navegadores antiguos
+      lazyVideos.forEach(v => loadAndPlay(v));
     }
-
-    // Desbloqueo forzado en móviles al primer toque o scroll
-    const unlockPlayback = () => {
-      lazyVideos.forEach(v => {
-        const rect = v.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          playVideo(v);
-        }
-      });
-    };
-
-    ['touchstart', 'touchend', 'scroll'].forEach(evt => {
-      window.addEventListener(evt, unlockPlayback, { once: true, passive: true });
-    });
   </script>
 </body>
 </html>
