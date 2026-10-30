@@ -45,17 +45,14 @@
       background: transparent;
       text-decoration: none;
       overflow: hidden;
-      content-visibility: auto;
-      contain-intrinsic-size: 360px 200px;
     }
 
     .project-media {
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: rgba(17, 17, 17, 0.08);
+      background: rgba(17, 17, 17, 0.05);
       overflow: hidden;
       position: relative;
-      contain: paint;
     }
 
     .project-media video {
@@ -63,16 +60,10 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: opacity 0.3s ease, transform 0.35s ease;
-      opacity: 0;
+      transition: transform 0.35s ease;
       background: transparent;
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
-      backface-visibility: hidden;
-    }
-
-    .project-media video.is-ready {
-      opacity: 1;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -150,40 +141,69 @@
       v.defaultMuted = true;
     });
 
-    const loadAndPlay = (v) => {
-      if (!v.src && v.dataset.src) {
-        v.src = v.dataset.src;
-        v.load();
-      }
-
-      if (!reduceMotion && v.paused) {
-        const p = v.play();
-        if (p !== undefined) {
-          p.then(() => v.classList.add('is-ready')).catch(noop);
-        }
+    const safePlay = (v) => {
+      if (reduceMotion) return;
+      const playPromise = v.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Si el navegador exigía interacción previa, reintenta al primer gesto
+          const retry = () => {
+            if (v._inView) v.play().catch(noop);
+          };
+          window.addEventListener('touchstart', retry, { once: true, passive: true });
+          window.addEventListener('scroll', retry, { once: true, passive: true });
+        });
       }
     };
 
-    if (!reduceMotion && 'IntersectionObserver' in window) {
+    const activateVideo = (v) => {
+      v._inView = true;
+      
+      // Si aún no se asignó la fuente, se carga y espera a que esté lista
+      if (!v.src && v.dataset.src) {
+        v.src = v.dataset.src;
+        v.addEventListener('canplay', () => {
+          if (v._inView) safePlay(v);
+        }, { once: true });
+        v.load();
+        return;
+      }
+
+      // Si ya tiene src cargado
+      if (v.readyState >= 2) {
+        safePlay(v);
+      } else {
+        v.addEventListener('canplay', () => {
+          if (v._inView) safePlay(v);
+        }, { once: true });
+      }
+    };
+
+    const deactivateVideo = (v) => {
+      v._inView = false;
+      if (!v.paused) {
+        v.pause();
+      }
+    };
+
+    if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const v = entry.target;
           if (entry.isIntersecting) {
-            loadAndPlay(v);
+            activateVideo(v);
           } else {
-            if (!v.paused) {
-              v.pause();
-            }
+            deactivateVideo(v);
           }
         });
       }, { 
-        rootMargin: '40px 0px', 
-        threshold: 0.25 
+        rootMargin: '100px 0px', 
+        threshold: 0.1 
       });
 
       lazyVideos.forEach(v => io.observe(v));
     } else {
-      lazyVideos.forEach(v => loadAndPlay(v));
+      lazyVideos.forEach(v => activateVideo(v));
     }
   </script>
 </body>
