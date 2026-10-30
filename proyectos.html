@@ -30,14 +30,14 @@
     }
 
     h1 {
-      margin-bottom: 40px;
+      margin-bottom: 28px;
     }
 
-    /* Grilla fluida: 3 columnas en desktop, 2 en tablet, 1 en mobile */
+    /* Grilla compacta con separación mínima */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 32px 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
       width: 100%;
     }
 
@@ -45,6 +45,7 @@
       display: block;
       background: transparent;
       text-decoration: none;
+      overflow: hidden;
     }
 
     .project-media {
@@ -60,7 +61,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
+      transition: transform 0.35s ease, filter 0.35s ease;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -69,13 +70,20 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+    }
+
     @media (max-width: 600px) {
       .projects-container {
-        padding: 95px 20px 50px;
+        padding: 95px 16px 50px;
       }
       .projects-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 8px;
       }
     }
   </style>
