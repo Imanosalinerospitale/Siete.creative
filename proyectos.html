@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>proyectos — sie7e</title>
-  <meta name="description" content="Proyectos de sie7e: cine, videoclips y artworks.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Proyectos de sie7e: cine, videoclips, publicidad y artworks en Córdoba.">
+  <meta name="theme-color" content="#ece6e6">
 
   <link rel="icon" type="image/svg+xml" href="Recursos/favicon7.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=11">
 
   <style>
     body {
@@ -23,9 +23,9 @@
 
     .projects-container {
       flex: 1;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 120px 24px 80px;
+      padding: 130px 24px 80px;
       width: 100%;
     }
 
@@ -33,50 +33,74 @@
       margin-bottom: 40px;
     }
 
+    /* Grilla de 3 columnas en escritorio, 2 en tablet, 1 en mobile */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 36px 28px;
+      width: 100%;
     }
 
     .project-card {
-      border: 1px solid #111111;
-      padding: 20px;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      background: transparent;
       text-decoration: none;
       color: inherit;
-      transition: background 0.2s ease, transform 0.2s ease;
     }
 
-    a.project-card:focus-visible {
-      background: #111111;
-      color: #ffffff;
+    .project-media {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: rgba(17, 17, 17, 0.05);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
     }
 
     @media (hover: hover) and (pointer: fine) {
-      a.project-card:hover {
-        background: #111111;
-        color: #ffffff;
-        transform: translateY(-3px);
+      .project-card:hover .project-media video {
+        transform: scale(1.04);
       }
     }
 
+    .project-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
     .project-title {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
       text-transform: lowercase;
+      color: #111111;
     }
 
     .project-category {
       font-size: 12px;
-      opacity: 0.7;
+      color: #555555;
       text-transform: lowercase;
+      white-space: nowrap;
     }
 
     @media (max-width: 600px) {
-      .projects-container { padding: 90px 16px 50px; }
+      .projects-container {
+        padding: 95px 20px 50px;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
     }
   </style>
 </head>
@@ -95,21 +119,108 @@
     <h1>// proyectos</h1>
 
     <div class="projects-grid">
-      <div class="project-card">
-        <span class="project-title">Proyecto 01</span>
-        <span class="project-category">audiovisual / 2026</span>
-      </div>
-      <div class="project-card">
-        <span class="project-title">Proyecto 02</span>
-        <span class="project-category">publicidad / 2026</span>
-      </div>
-      <div class="project-card">
-        <span class="project-title">Proyecto 03</span>
-        <span class="project-category">narrativa / 2026</span>
-      </div>
+      <!-- Proyecto 01 -->
+      <article class="project-card">
+        <div class="project-media">
+          <video class="lazy-video" src="Recursos/Fragmentos/frag1.mp4" loop muted playsinline preload="none" aria-label="Proyecto 01"></video>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Proyecto 01</span>
+          <span class="project-category">videoclip / 2026</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 02 -->
+      <article class="project-card">
+        <div class="project-media">
+          <video class="lazy-video" src="Recursos/Fragmentos/frag2.mp4" loop muted playsinline preload="none" aria-label="Proyecto 02"></video>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Proyecto 02</span>
+          <span class="project-category">ficción / 2026</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 03 -->
+      <article class="project-card">
+        <div class="project-media">
+          <video class="lazy-video" src="Recursos/Fragmentos/frag3.mp4" loop muted playsinline preload="none" aria-label="Proyecto 03"></video>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Proyecto 03</span>
+          <span class="project-category">publicidad / 2026</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 04 -->
+      <article class="project-card">
+        <div class="project-media">
+          <video class="lazy-video" src="Recursos/Fragmentos/frag4.mp4" loop muted playsinline preload="none" aria-label="Proyecto 04"></video>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Proyecto 04</span>
+          <span class="project-category">videoclip / 2026</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 05 -->
+      <article class="project-card">
+        <div class="project-media">
+          <video class="lazy-video" src="Recursos/Fragmentos/frag5.mp4" loop muted playsinline preload="none" aria-label="Proyecto 05"></video>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Proyecto 05</span>
+          <span class="project-category">experimental / 2026</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 06 -->
+      <article class="project-card">
+        <div class="project-media">
+          <video class="lazy-video" src="Recursos/Fragmentos/frag6.mp4" loop muted playsinline preload="none" aria-label="Proyecto 06"></video>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Proyecto 06</span>
+          <span class="project-category">documental / 2026</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 07 -->
+      <article class="project-card">
+        <div class="project-media">
+          <video class="lazy-video" src="Recursos/Fragmentos/frag7.mp4" loop muted playsinline preload="none" aria-label="Proyecto 07"></video>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Proyecto 07</span>
+          <span class="project-category">publicidad / 2026</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 08 -->
+      <article class="project-card">
+        <div class="project-media">
+          <video class="lazy-video" src="Recursos/Fragmentos/frag8.mp4" loop muted playsinline preload="none" aria-label="Proyecto 08"></video>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Proyecto 08</span>
+          <span class="project-category">videoclip / 2026</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 09 -->
+      <article class="project-card">
+        <div class="project-media">
+          <video class="lazy-video" src="Recursos/Fragmentos/frag9.mp4" loop muted playsinline preload="none" aria-label="Proyecto 09"></video>
+        </div>
+        <div class="project-info">
+          <span class="project-title">Proyecto 09</span>
+          <span class="project-category">artwork / 2026</span>
+        </div>
+      </article>
     </div>
   </main>
 
+  <!-- Footer Global -->
   <footer class="footer">
     <div class="footer-content">
       <span>córdoba, argentina</span>
@@ -118,5 +229,25 @@
     </div>
   </footer>
 
+  <script>
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const noop = () => {};
+    const lazyVideos = [...document.querySelectorAll('.lazy-video')];
+
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const v = entry.target;
+          if (entry.isIntersecting) {
+            v.play().catch(noop);
+          } else {
+            v.pause();
+          }
+        });
+      }, { rootMargin: '60px 0px', threshold: 0.2 });
+
+      lazyVideos.forEach(v => io.observe(v));
+    }
+  </script>
 </body>
 </html>
