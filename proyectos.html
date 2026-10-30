@@ -33,21 +33,18 @@
       margin-bottom: 40px;
     }
 
-    /* Grilla de 3 columnas en escritorio, 2 en tablet, 1 en mobile */
+    /* Grilla fluida: 3 columnas en desktop, 2 en tablet, 1 en mobile */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 36px 28px;
+      gap: 32px 24px;
       width: 100%;
     }
 
     .project-card {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      display: block;
       background: transparent;
       text-decoration: none;
-      color: inherit;
     }
 
     .project-media {
@@ -68,29 +65,8 @@
 
     @media (hover: hover) and (pointer: fine) {
       .project-card:hover .project-media video {
-        transform: scale(1.04);
+        transform: scale(1.03);
       }
-    }
-
-    .project-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .project-title {
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: lowercase;
-      color: #111111;
-    }
-
-    .project-category {
-      font-size: 12px;
-      color: #555555;
-      text-transform: lowercase;
-      white-space: nowrap;
     }
 
     @media (max-width: 600px) {
@@ -99,7 +75,7 @@
       }
       .projects-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 24px;
       }
     }
   </style>
@@ -119,108 +95,62 @@
     <h1>// proyectos</h1>
 
     <div class="projects-grid">
-      <!-- Proyecto 01 -->
-      <article class="project-card">
+      <div class="project-card">
         <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag1.mp4" loop muted playsinline preload="none" aria-label="Proyecto 01"></video>
+          <video class="lazy-video" src="Recursos/Fragmentos/frag1.mp4" loop muted playsinline preload="none" aria-label="Fragmento 1"></video>
         </div>
-        <div class="project-info">
-          <span class="project-title">Proyecto 01</span>
-          <span class="project-category">videoclip / 2026</span>
-        </div>
-      </article>
+      </div>
 
-      <!-- Proyecto 02 -->
-      <article class="project-card">
+      <div class="project-card">
         <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag2.mp4" loop muted playsinline preload="none" aria-label="Proyecto 02"></video>
+          <video class="lazy-video" src="Recursos/Fragmentos/frag2.mp4" loop muted playsinline preload="none" aria-label="Fragmento 2"></video>
         </div>
-        <div class="project-info">
-          <span class="project-title">Proyecto 02</span>
-          <span class="project-category">ficción / 2026</span>
-        </div>
-      </article>
+      </div>
 
-      <!-- Proyecto 03 -->
-      <article class="project-card">
+      <div class="project-card">
         <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag3.mp4" loop muted playsinline preload="none" aria-label="Proyecto 03"></video>
+          <video class="lazy-video" src="Recursos/Fragmentos/frag3.mp4" loop muted playsinline preload="none" aria-label="Fragmento 3"></video>
         </div>
-        <div class="project-info">
-          <span class="project-title">Proyecto 03</span>
-          <span class="project-category">publicidad / 2026</span>
-        </div>
-      </article>
+      </div>
 
-      <!-- Proyecto 04 -->
-      <article class="project-card">
+      <div class="project-card">
         <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag4.mp4" loop muted playsinline preload="none" aria-label="Proyecto 04"></video>
+          <video class="lazy-video" src="Recursos/Fragmentos/frag4.mp4" loop muted playsinline preload="none" aria-label="Fragmento 4"></video>
         </div>
-        <div class="project-info">
-          <span class="project-title">Proyecto 04</span>
-          <span class="project-category">videoclip / 2026</span>
-        </div>
-      </article>
+      </div>
 
-      <!-- Proyecto 05 -->
-      <article class="project-card">
+      <div class="project-card">
         <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag5.mp4" loop muted playsinline preload="none" aria-label="Proyecto 05"></video>
+          <video class="lazy-video" src="Recursos/Fragmentos/frag5.mp4" loop muted playsinline preload="none" aria-label="Fragmento 5"></video>
         </div>
-        <div class="project-info">
-          <span class="project-title">Proyecto 05</span>
-          <span class="project-category">experimental / 2026</span>
-        </div>
-      </article>
+      </div>
 
-      <!-- Proyecto 06 -->
-      <article class="project-card">
+      <div class="project-card">
         <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag6.mp4" loop muted playsinline preload="none" aria-label="Proyecto 06"></video>
+          <video class="lazy-video" src="Recursos/Fragmentos/frag6.mp4" loop muted playsinline preload="none" aria-label="Fragmento 6"></video>
         </div>
-        <div class="project-info">
-          <span class="project-title">Proyecto 06</span>
-          <span class="project-category">documental / 2026</span>
-        </div>
-      </article>
+      </div>
 
-      <!-- Proyecto 07 -->
-      <article class="project-card">
+      <div class="project-card">
         <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag7.mp4" loop muted playsinline preload="none" aria-label="Proyecto 07"></video>
+          <video class="lazy-video" src="Recursos/Fragmentos/frag7.mp4" loop muted playsinline preload="none" aria-label="Fragmento 7"></video>
         </div>
-        <div class="project-info">
-          <span class="project-title">Proyecto 07</span>
-          <span class="project-category">publicidad / 2026</span>
-        </div>
-      </article>
+      </div>
 
-      <!-- Proyecto 08 -->
-      <article class="project-card">
+      <div class="project-card">
         <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag8.mp4" loop muted playsinline preload="none" aria-label="Proyecto 08"></video>
+          <video class="lazy-video" src="Recursos/Fragmentos/frag8.mp4" loop muted playsinline preload="none" aria-label="Fragmento 8"></video>
         </div>
-        <div class="project-info">
-          <span class="project-title">Proyecto 08</span>
-          <span class="project-category">videoclip / 2026</span>
-        </div>
-      </article>
+      </div>
 
-      <!-- Proyecto 09 -->
-      <article class="project-card">
+      <div class="project-card">
         <div class="project-media">
-          <video class="lazy-video" src="Recursos/Fragmentos/frag9.mp4" loop muted playsinline preload="none" aria-label="Proyecto 09"></video>
+          <video class="lazy-video" src="Recursos/Fragmentos/frag9.mp4" loop muted playsinline preload="none" aria-label="Fragmento 9"></video>
         </div>
-        <div class="project-info">
-          <span class="project-title">Proyecto 09</span>
-          <span class="project-category">artwork / 2026</span>
-        </div>
-      </article>
+      </div>
     </div>
   </main>
 
-  <!-- Footer Global -->
   <footer class="footer">
     <div class="footer-content">
       <span>córdoba, argentina</span>
