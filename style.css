@@ -7,7 +7,7 @@
 
 html, body {
   width: 100%;
-  background-color: #ffffff;
+  background-color: #ece6e6;
   color: #111111;
   font-family: 'Space Mono', monospace;
   overflow-x: hidden;
@@ -63,7 +63,7 @@ a:focus-visible, .btn:focus-visible {
   padding: 24px 20px;
   display: flex;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(236, 230, 230, 0.95);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   z-index: 100;
@@ -106,7 +106,7 @@ a:focus-visible, .btn:focus-visible {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #ece6e6;
 }
 
 .hero-video {
@@ -128,7 +128,7 @@ a:focus-visible, .btn:focus-visible {
 .video-box {
   width: 100%;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #ece6e6;
   display: flex;
   justify-content: center;
 }
@@ -161,7 +161,7 @@ a:focus-visible, .btn:focus-visible {
   flex-direction: column;
   align-items: center;
   scroll-margin-top: 70px;
-  background-color: #ffffff;
+  background-color: #ece6e6;
 }
 
 .contact form {
@@ -233,7 +233,7 @@ a:focus-visible, .btn:focus-visible {
 @media (hover: hover) and (pointer: fine) {
   .btn:hover:not(:disabled) {
     background: #111111;
-    color: #ffffff;
+    color: #ece6e6;
   }
 }
 
@@ -247,7 +247,7 @@ a:focus-visible, .btn:focus-visible {
   width: 100%;
   border-top: 1px solid #111111;
   padding: 32px 24px;
-  background-color: #ffffff;
+  background-color: #ece6e6;
   font-size: 13px;
   color: #111111;
 }
