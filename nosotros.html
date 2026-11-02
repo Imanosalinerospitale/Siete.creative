@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="style.css?v=16">
 
   <style>
     body {
@@ -87,10 +87,11 @@
       color: inherit;
     }
 
+    /* Contenedor limpio sin fondos grises que alteren el contraste o color */
     .team-photo-container {
       width: 100%;
       aspect-ratio: 4 / 5;
-      background: rgba(17, 17, 17, 0.05);
+      background: transparent;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -103,6 +104,9 @@
       object-fit: cover;
       display: block;
       transition: transform 0.4s ease;
+      /* Muestra la imagen completamente pura sin filtros */
+      filter: none;
+      -webkit-filter: none;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -192,7 +196,9 @@
       aspect-ratio: 4 / 5;
       object-fit: cover;
       flex-shrink: 0;
-      background: rgba(17, 17, 17, 0.05);
+      background: transparent;
+      filter: none;
+      -webkit-filter: none;
     }
 
     .modal-body {
