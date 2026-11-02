@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=17">
 
   <style>
     body {
@@ -87,7 +87,6 @@
       color: inherit;
     }
 
-    /* Contenedor limpio sin fondos grises que alteren el contraste o color */
     .team-photo-container {
       width: 100%;
       aspect-ratio: 4 / 5;
@@ -98,15 +97,14 @@
       justify-content: center;
     }
 
-    .team-photo-container img {
+    .team-photo-container img,
+    .modal-photo {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
       transition: transform 0.4s ease;
-      /* Muestra la imagen completamente pura sin filtros */
-      filter: none;
-      -webkit-filter: none;
+      image-rendering: -webkit-optimize-contrast;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -133,13 +131,10 @@
       text-transform: lowercase;
     }
 
-    /* ===== ESTILOS DEL MODAL (BIOFILM OVERLAY) ===== */
+    /* Modal / Overlay */
     .modal-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: rgba(17, 17, 17, 0.6);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
@@ -184,7 +179,7 @@
       right: 20px;
       background: transparent;
       border: none;
-      font-family: inherit;
+      font: inherit;
       font-size: 16px;
       color: #111111;
       cursor: pointer;
@@ -194,11 +189,7 @@
     .modal-photo {
       width: 180px;
       aspect-ratio: 4 / 5;
-      object-fit: cover;
       flex-shrink: 0;
-      background: transparent;
-      filter: none;
-      -webkit-filter: none;
     }
 
     .modal-body {
@@ -236,13 +227,11 @@
         width: calc((100% - 32px) / 2);
         max-width: 320px;
       }
-
       .modal-card {
         flex-direction: column;
         padding: 28px 20px 24px;
         max-height: 80vh;
       }
-
       .modal-photo {
         width: 100%;
         max-width: 200px;
@@ -251,26 +240,11 @@
     }
 
     @media (max-width: 600px) {
-      .content-section { 
-        padding: 95px 20px 50px; 
-      }
-      .bio-text {
-        font-size: 14px;
-        line-height: 1.75;
-        gap: 18px;
-      }
-      .divider {
-        margin: 48px 0 36px;
-      }
-      .team-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 36px;
-      }
-      .team-card {
-        width: 100%;
-        max-width: 320px;
-      }
+      .content-section { padding: 95px 20px 50px; }
+      .bio-text { font-size: 14px; line-height: 1.75; gap: 18px; }
+      .divider { margin: 48px 0 36px; }
+      .team-grid { flex-direction: column; align-items: center; gap: 36px; }
+      .team-card { width: 100%; max-width: 320px; }
     }
   </style>
 </head>
@@ -301,77 +275,11 @@
 
     <section class="team-section">
       <h2>// equipo</h2>
-      <div class="team-grid">
-        <!-- Rosario -->
-        <button type="button" class="team-card" data-member="rosario">
-          <div class="team-photo-container">
-            <img src="Recursos/Nosotros/rosario.webp" alt="Rosario Gonzalez Leaniz" loading="lazy">
-          </div>
-          <div class="team-info">
-            <span class="team-name">Rosario Gonzalez Leaniz</span>
-            <span class="team-role">dirección</span>
-          </div>
-        </button>
-
-        <!-- Valentin -->
-        <button type="button" class="team-card" data-member="valentin">
-          <div class="team-photo-container">
-            <img src="Recursos/Nosotros/valentin.webp" alt="Valentin Ledesma" loading="lazy">
-          </div>
-          <div class="team-info">
-            <span class="team-name">Valentin Ledesma</span>
-            <span class="team-role">producción</span>
-          </div>
-        </button>
-
-        <!-- Francisco -->
-        <button type="button" class="team-card" data-member="francisco">
-          <div class="team-photo-container">
-            <img src="Recursos/Nosotros/francisco.webp" alt="Francisco Cholaky" loading="lazy">
-          </div>
-          <div class="team-info">
-            <span class="team-name">Francisco Cholaky</span>
-            <span class="team-role">dirección</span>
-          </div>
-        </button>
-
-        <!-- Imanol -->
-        <button type="button" class="team-card" data-member="imanol">
-          <div class="team-photo-container">
-            <img src="Recursos/Nosotros/imanol.webp" alt="Imanol Salinero Spitale" loading="lazy">
-          </div>
-          <div class="team-info">
-            <span class="team-name">Imanol Salinero Spitale</span>
-            <span class="team-role">producción</span>
-          </div>
-        </button>
-
-        <!-- Valentina -->
-        <button type="button" class="team-card" data-member="valentina">
-          <div class="team-photo-container">
-            <img src="Recursos/Nosotros/valentina.webp" alt="Valentina Dominguez" loading="lazy">
-          </div>
-          <div class="team-info">
-            <span class="team-name">Valentina Dominguez</span>
-            <span class="team-role">dirección</span>
-          </div>
-        </button>
-
-        <!-- Belen -->
-        <button type="button" class="team-card" data-member="belen">
-          <div class="team-photo-container">
-            <img src="Recursos/Nosotros/belen.webp" alt="Belen Gonzalez" loading="lazy">
-          </div>
-          <div class="team-info">
-            <span class="team-name">Belen Gonzalez</span>
-            <span class="team-role">producción</span>
-          </div>
-        </button>
-      </div>
+      <!-- La grilla se puebla dinámicamente desde JavaScript -->
+      <div class="team-grid" id="team-grid"></div>
     </section>
   </main>
 
-  <!-- Modal Emergente Reusable -->
   <div class="modal-overlay" id="bio-modal" aria-hidden="true" role="dialog">
     <div class="modal-card">
       <button type="button" class="modal-close" id="modal-close-btn" aria-label="Cerrar">[cerrar x]</button>
@@ -443,12 +351,31 @@
       }
     };
 
+    const teamGrid = document.getElementById('team-grid');
     const modal = document.getElementById('bio-modal');
     const modalImg = document.getElementById('modal-img');
     const modalName = document.getElementById('modal-name');
     const modalRole = document.getElementById('modal-role');
     const modalBio = document.getElementById('modal-bio');
     const closeBtn = document.getElementById('modal-close-btn');
+
+    // Generar la grilla del equipo dinámicamente
+    Object.entries(teamBios).forEach(([key, member]) => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'team-card';
+      card.innerHTML = `
+        <div class="team-photo-container">
+          <img src="${member.img}" alt="${member.name}" loading="lazy">
+        </div>
+        <div class="team-info">
+          <span class="team-name">${member.name}</span>
+          <span class="team-role">${member.role}</span>
+        </div>
+      `;
+      card.addEventListener('click', () => openModal(key));
+      teamGrid.appendChild(card);
+    });
 
     const openModal = (key) => {
       const data = teamBios[key];
@@ -471,19 +398,8 @@
       document.body.style.overflow = '';
     };
 
-    document.querySelectorAll('.team-card').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const key = btn.dataset.member;
-        openModal(key);
-      });
-    });
-
     closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
     });
