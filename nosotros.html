@@ -387,45 +387,48 @@
   </footer>
 
   <script>
-    /* Base de datos de biofilm para cada integrante */
+    /* Base de datos de biofilm utilizando template literals (``) para permitir textos multilínea */
     const teamBios = {
       rosario: {
         name: "Rosario Gonzalez Leaniz",
         role: "dirección",
         img: "Recursos/rosario.jpg",
-        bio: "<p>Nació en septiembre de 1998 en Traslasierra, provincia de Córdoba. En 2017 se mudó a la capital para estudiar Cine y TV en la Universidad Nacional de Córdoba. Desde 2018 se desempeña activamente como montajista en cine y directora audiovisual. Entre sus trabajos en el área se destacan: Transliterar la Muerte: Acto 1 (2024, Francisco Gonzalez Cholaky); Ciudad Universitaria  (2022, Rosendo Ruiz); Donde Revientan las Luciérnagas (2024, Miguel Ángel Papalini); y Neonherz (WIP -  Damián Tetelbaum y Anna Paula Honig). En paralelo, ha trabajado en el área de dirección en ficciones como Paula (2022, Florencia Wehbe), Al Impenetrable (2024, Sonia Bertotti), El Triángulo (2023, Alejandra Lipoma y Romina Vlachoff) y La Cumbre (2024, Leandro Naranjo y Santiago Zapata).
-              En 2023 estrenó en el 24° BAFICI Te amo tanto que escribí una película para nunca enojarme con vos, su ópera prima como co-directora y montajista. En la actualidad, se encuentra editando el largometraje documental Yo creo (dir. Florencia Wehbe), desarrollando su primer largometraje como directora, investigando sobre el lenguaje cinematográfico en el género documental y trabajando como editora audiovisual desde Córdoba. 
-              .</p>"
+        bio: `<p>Nació en septiembre de 1998 en Traslasierra, provincia de Córdoba. En 2017 se mudó a la capital para estudiar Cine y TV en la Universidad Nacional de Córdoba. Desde 2018 se desempeña activamente como montajista en cine y directora audiovisual. Entre sus trabajos en el área se destacan: <em>Transliterar la Muerte: Acto 1</em> (2024, Francisco Gonzalez Cholaky); <em>Ciudad Universitaria</em> (2022, Rosendo Ruiz); <em>Donde Revientan las Luciérnagas</em> (2024, Miguel Ángel Papalini); y <em>Neonherz</em> (WIP - Damián Tetelbaum y Anna Paula Honig).</p>
+        <p>En paralelo, ha trabajado en el área de dirección en ficciones como <em>Paula</em> (2022, Florencia Wehbe), <em>Al Impenetrable</em> (2024, Sonia Bertotti), <em>El Triángulo</em> (2023, Alejandra Lipoma y Romina Vlachoff) y <em>La Cumbre</em> (2024, Leandro Naranjo y Santiago Zapata).</p>
+        <p>En 2023 estrenó en el 24° BAFICI <em>Te amo tanto que escribí una película para nunca enojarme con vos</em>, su ópera prima como co-directora y montajista. En la actualidad, se encuentra editando el largometraje documental <em>Yo creo</em> (dir. Florencia Wehbe), desarrollando su primer largometraje como directora, investigando sobre el lenguaje cinematográfico en el género documental y trabajando como editora audiovisual desde Córdoba.</p>`
       },
       valentin: {
         name: "Valentin Ledesma",
         role: "producción",
         img: "Recursos/valentin.jpg",
-        bio: "<p>Nació el 05 de enero de 1999 en la Ciudad de San Luis, Argentina. Durante su infancia y adolescencia se formó artísticamente en teatro, canto y comedia musical. Sus estudios universitarios comienzan en 2017 en la Universidad Nacional de Córdoba, con la Tecnicatura en Producción y Medios Audiovisuales de la Facultad de Artes.   En 2019 descubre su vocación por la producción durante el rodaje de la película-taller de Rosendo Ruíz, "Ciudad Universitaria”. Desde allí en adelante comienza a desarrollarse en ese área. En el año 2021 produce el cortometraje documental "Transliterar la muerte: Acto 1" que toma como protagonista un grupo de diversidades sexuales y su forma de habitar la Ciudad de Córdoba.  En 2022 fue locacionista del capítulo filmado en Córdoba del reality show norteamericano "Amazing Race". En el mismo año realizó la Diplomatura en Exhibición y Distribución de la Asociación de Productores Audiovisuales de Córdoba.  Al siguiente año estrena en el 24° BAFICI el cortometraje "Te amo tanto que escribí una película para nunca enojarme con vos", proyecto donde se encargó del desarrollo, la producción ejecutiva y la jefatura de producción.  El proyecto fue seleccionado por 7 festivales más, no solo en Argentina, sino también en Colombia y USA. En el año 2025 formó parte del equipo de dirección, como 2° asistente, de la película “Un susurro invocó mi nombre”, producida por Bobadilla Productions. En la actualidad se encarga del desarrollo de su primer largometraje documental como productor ejecutivo..</p>"
+        bio: `<p>Nació el 05 de enero de 1999 en la Ciudad de San Luis, Argentina. Durante su infancia y adolescencia se formó artísticamente en teatro, canto y comedia musical. Sus estudios universitarios comienzan en 2017 en la Universidad Nacional de Córdoba, con la Tecnicatura en Producción y Medios Audiovisuales de la Facultad de Artes.</p>
+        <p>En 2019 descubre su vocación por la producción durante el rodaje de la película-taller de Rosendo Ruíz, <em>Ciudad Universitaria</em>. Desde allí en adelante comienza a desarrollarse en ese área. En el año 2021 produce el cortometraje documental <em>Transliterar la muerte: Acto 1</em> que toma como protagonista un grupo de diversidades sexuales y su forma de habitar la Ciudad de Córdoba.</p>
+        <p>En 2022 fue locacionista del capítulo filmado en Córdoba del reality show norteamericano <em>Amazing Race</em>. En el mismo año realizó la Diplomatura en Exhibición y Distribución de la Asociación de Productores Audiovisuales de Córdoba. Al siguiente año estrena en el 24° BAFICI el cortometraje <em>Te amo tanto que escribí una película para nunca enojarme con vos</em>, proyecto donde se encargó del desarrollo, la producción ejecutiva y la jefatura de producción. El proyecto fue seleccionado por 7 festivales más en Argentina, Colombia y USA.</p>
+        <p>En el año 2025 formó parte del equipo de dirección, como 2° asistente, de la película <em>Un susurro invocó mi nombre</em>, producida por Bobadilla Productions. En la actualidad se encarga del desarrollo de su primer largometraje documental como productor ejecutivo.</p>`
       },
       francisco: {
         name: "Francisco Cholaky",
         role: "dirección",
         img: "Recursos/francisco.jpg",
-        bio: "<p>Escribí acá la biografía/biofilm de Francisco.</p>"
+        bio: `<p>Escribí acá la biografía/biofilm de Francisco.</p>`
       },
       imanol: {
         name: "Imanol Salinero Spitale",
         role: "producción",
         img: "Recursos/imanol.jpg",
-        bio: "<p>Escribí acá la biografía/biofilm de Imanol.</p>"
+        bio: `<p>Escribí acá la biografía/biofilm de Imanol.</p>`
       },
       valentina: {
         name: "Valentina Dominguez",
         role: "dirección",
         img: "Recursos/valentina.jpg",
-        bio: "<p>Escribí acá la biografía/biofilm de Valentina.</p>"
+        bio: `<p>Escribí acá la biografía/biofilm de Valentina.</p>`
       },
       belen: {
         name: "Belen Gonzalez",
         role: "producción",
         img: "Recursos/belen.jpg",
-        bio: "<p>Escribí acá la biografía/biofilm de Belén.</p>"
+        bio: `<p>Escribí acá la biografía/biofilm de Belén.</p>`
       }
     };
 
@@ -448,7 +451,7 @@
 
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden'; // Evita el scroll de fondo
+      document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
@@ -466,12 +469,10 @@
 
     closeBtn.addEventListener('click', closeModal);
 
-    // Clic fuera de la tarjeta para cerrar
     modal.addEventListener('click', (e) => {
       if (e.target === modal) closeModal();
     });
 
-    // Tecla Esc para cerrar
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
     });
