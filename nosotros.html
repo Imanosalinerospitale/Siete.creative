@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>nosotros — sie7e</title>
   <meta name="description" content="Quiénes somos: sie7e, colectivo artístico y productora audiovisual en Córdoba.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ece6e6">
 
   <link rel="icon" type="image/svg+xml" href="Recursos/favicon7.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css?v=13">
 
   <style>
     body {
@@ -63,7 +63,6 @@
       margin-bottom: 36px;
     }
 
-    /* Grilla simétrica 3 y 3 */
     .team-grid {
       display: flex;
       flex-wrap: wrap;
@@ -82,12 +81,16 @@
       background: transparent;
       border: none;
       padding: 0;
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+      color: inherit;
     }
 
     .team-photo-container {
       width: 100%;
       aspect-ratio: 4 / 5;
-      background: #f5f5f5;
+      background: rgba(17, 17, 17, 0.05);
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -99,6 +102,13 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.4s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .team-card:hover .team-photo-container img {
+        transform: scale(1.03);
+      }
     }
 
     .team-info {
@@ -119,10 +129,118 @@
       text-transform: lowercase;
     }
 
+    /* ===== ESTILOS DEL MODAL (BIOFILM OVERLAY) ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 17, 17, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #ece6e6;
+      border: 1px solid #111111;
+      width: 100%;
+      max-width: 680px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 36px;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      gap: 28px;
+      transform: translateY(15px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.is-open .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      font-family: inherit;
+      font-size: 16px;
+      color: #111111;
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    .modal-photo {
+      width: 180px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: rgba(17, 17, 17, 0.05);
+    }
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .modal-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .modal-role {
+      font-size: 13px;
+      color: #555555;
+      text-transform: lowercase;
+      margin-top: -6px;
+    }
+
+    .modal-bio {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #222222;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
     @media (max-width: 768px) {
       .team-card {
         width: calc((100% - 32px) / 2);
         max-width: 320px;
+      }
+
+      .modal-card {
+        flex-direction: column;
+        padding: 28px 20px 24px;
+        max-height: 80vh;
+      }
+
+      .modal-photo {
+        width: 100%;
+        max-width: 200px;
+        align-self: center;
       }
     }
 
@@ -178,72 +296,88 @@
     <section class="team-section">
       <h2>// equipo</h2>
       <div class="team-grid">
-        <!-- Fila 1 -->
-        <div class="team-card">
+        <!-- Rosario -->
+        <button type="button" class="team-card" data-member="rosario">
           <div class="team-photo-container">
-            <!-- <img src="Recursos/rosario.jpg" alt="Rosario Gonzalez Leaniz"> -->
+            <img src="Recursos/rosario.jpg" alt="Rosario Gonzalez Leaniz" loading="lazy">
           </div>
           <div class="team-info">
             <span class="team-name">Rosario Gonzalez Leaniz</span>
             <span class="team-role">dirección</span>
           </div>
-        </div>
+        </button>
 
-        <div class="team-card">
+        <!-- Valentin -->
+        <button type="button" class="team-card" data-member="valentin">
           <div class="team-photo-container">
-            <!-- <img src="Recursos/valentin.jpg" alt="Valentin Ledesma"> -->
+            <img src="Recursos/valentin.jpg" alt="Valentin Ledesma" loading="lazy">
           </div>
           <div class="team-info">
             <span class="team-name">Valentin Ledesma</span>
             <span class="team-role">producción</span>
           </div>
-        </div>
+        </button>
 
-        <div class="team-card">
+        <!-- Francisco -->
+        <button type="button" class="team-card" data-member="francisco">
           <div class="team-photo-container">
-            <!-- <img src="Recursos/francisco.jpg" alt="Francisco Cholaky"> -->
+            <img src="Recursos/francisco.jpg" alt="Francisco Cholaky" loading="lazy">
           </div>
           <div class="team-info">
             <span class="team-name">Francisco Cholaky</span>
             <span class="team-role">dirección</span>
           </div>
-        </div>
+        </button>
 
-        <!-- Fila 2 -->
-        <div class="team-card">
+        <!-- Imanol -->
+        <button type="button" class="team-card" data-member="imanol">
           <div class="team-photo-container">
-            <!-- <img src="Recursos/imanol.jpg" alt="Imanol Salinero Spitale"> -->
+            <img src="Recursos/imanol.jpg" alt="Imanol Salinero Spitale" loading="lazy">
           </div>
           <div class="team-info">
             <span class="team-name">Imanol Salinero Spitale</span>
             <span class="team-role">producción</span>
           </div>
-        </div>
+        </button>
 
-        <div class="team-card">
+        <!-- Valentina -->
+        <button type="button" class="team-card" data-member="valentina">
           <div class="team-photo-container">
-            <!-- <img src="Recursos/valentina.jpg" alt="Valentina Dominguez"> -->
+            <img src="Recursos/valentina.jpg" alt="Valentina Dominguez" loading="lazy">
           </div>
           <div class="team-info">
             <span class="team-name">Valentina Dominguez</span>
             <span class="team-role">dirección</span>
           </div>
-        </div>
+        </button>
 
-        <div class="team-card">
+        <!-- Belen -->
+        <button type="button" class="team-card" data-member="belen">
           <div class="team-photo-container">
-            <!-- <img src="Recursos/belen.jpg" alt="Belen Gonzalez"> -->
+            <img src="Recursos/belen.jpg" alt="Belen Gonzalez" loading="lazy">
           </div>
           <div class="team-info">
             <span class="team-name">Belen Gonzalez</span>
             <span class="team-role">producción</span>
           </div>
-        </div>
+        </button>
       </div>
     </section>
   </main>
 
-  <!-- Footer Global -->
+  <!-- Modal Emergente Reusable -->
+  <div class="modal-overlay" id="bio-modal" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <button type="button" class="modal-close" id="modal-close-btn" aria-label="Cerrar">[cerrar x]</button>
+      <img src="" alt="" class="modal-photo" id="modal-img">
+      <div class="modal-body">
+        <h3 class="modal-name" id="modal-name"></h3>
+        <span class="modal-role" id="modal-role"></span>
+        <div class="modal-bio" id="modal-bio"></div>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="footer-content">
       <span>córdoba, argentina</span>
@@ -252,5 +386,93 @@
     </div>
   </footer>
 
+  <script>
+    /* Base de datos de biofilm para cada integrante */
+    const teamBios = {
+      rosario: {
+        name: "Rosario Gonzalez Leaniz",
+        role: "dirección",
+        img: "Recursos/rosario.jpg",
+        bio: "<p>Escribí acá la biografía/biofilm de Rosario. Podés agregar varios párrafos o proyectos destacados.</p>"
+      },
+      valentin: {
+        name: "Valentin Ledesma",
+        role: "producción",
+        img: "Recursos/valentin.jpg",
+        bio: "<p>Escribí acá la biografía/biofilm de Valentín.</p>"
+      },
+      francisco: {
+        name: "Francisco Cholaky",
+        role: "dirección",
+        img: "Recursos/francisco.jpg",
+        bio: "<p>Escribí acá la biografía/biofilm de Francisco.</p>"
+      },
+      imanol: {
+        name: "Imanol Salinero Spitale",
+        role: "producción",
+        img: "Recursos/imanol.jpg",
+        bio: "<p>Escribí acá la biografía/biofilm de Imanol.</p>"
+      },
+      valentina: {
+        name: "Valentina Dominguez",
+        role: "dirección",
+        img: "Recursos/valentina.jpg",
+        bio: "<p>Escribí acá la biografía/biofilm de Valentina.</p>"
+      },
+      belen: {
+        name: "Belen Gonzalez",
+        role: "producción",
+        img: "Recursos/belen.jpg",
+        bio: "<p>Escribí acá la biografía/biofilm de Belén.</p>"
+      }
+    };
+
+    const modal = document.getElementById('bio-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalName = document.getElementById('modal-name');
+    const modalRole = document.getElementById('modal-role');
+    const modalBio = document.getElementById('modal-bio');
+    const closeBtn = document.getElementById('modal-close-btn');
+
+    const openModal = (key) => {
+      const data = teamBios[key];
+      if (!data) return;
+
+      modalImg.src = data.img;
+      modalImg.alt = data.name;
+      modalName.textContent = data.name;
+      modalRole.textContent = data.role;
+      modalBio.innerHTML = data.bio;
+
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Evita el scroll de fondo
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('.team-card').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.member;
+        openModal(key);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // Clic fuera de la tarjeta para cerrar
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Tecla Esc para cerrar
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    });
+  </script>
 </body>
 </html>
