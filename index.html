@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=24">
+  <link rel="stylesheet" href="style.css?v=25">
 
   <style>
     body {
@@ -24,10 +24,10 @@
       overflow-x: hidden;
     }
 
-    /* Logo Animado de Entrada (Doble de tamaño) */
+    /* Logo Animado de Entrada */
     .hero-logo-container {
       width: 100%;
-      max-width: 960px; /* Tamaño duplicado para mayor impacto visual */
+      max-width: 960px;
       margin: 130px auto 50px;
       padding: 0 24px;
       display: flex;
@@ -71,7 +71,7 @@
       will-change: transform;
     }
 
-    /* Sección de Formulario de Contacto (Estilo Minimalista SIE7E) */
+    /* Formulario Minimalista (Líneas inferiores) */
     .contact-section {
       max-width: 760px;
       margin: 100px auto 80px;
@@ -84,51 +84,46 @@
       font-size: 16px;
       font-weight: 400;
       text-transform: lowercase;
-      margin-bottom: 36px;
+      margin-bottom: 48px;
       color: #111111;
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 36px;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
     }
 
     .form-group label {
       font-size: 13px;
-      color: #555555;
+      color: #333333;
       text-transform: lowercase;
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 14px 16px;
+      padding: 8px 0;
       background: transparent;
-      border: 1px solid #111111;
+      border: none;
+      border-bottom: 1px solid #111111;
       font-family: inherit;
       font-size: 14px;
       color: #111111;
       box-sizing: border-box;
       outline: none;
-      transition: border-color 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #000000;
-      background: rgba(17, 17, 17, 0.02);
+      border-radius: 0;
     }
 
     .form-group textarea {
       resize: vertical;
-      min-height: 140px;
+      min-height: 80px;
       line-height: 1.6;
     }
 
@@ -137,12 +132,13 @@
       background: transparent;
       color: #111111;
       border: 1px solid #111111;
-      padding: 12px 28px;
+      padding: 14px 28px;
       font-family: inherit;
       font-size: 13px;
       text-transform: lowercase;
       cursor: pointer;
-      transition: all 0.3s ease;
+      margin-top: 12px;
+      transition: all 0.2s ease;
     }
 
     .submit-btn:hover {
@@ -153,7 +149,6 @@
     @media (max-width: 768px) {
       .hero-logo-container {
         margin: 100px auto 30px;
-        max-width: 100%;
       }
 
       .contact-section {
@@ -174,7 +169,7 @@
   </header>
 
   <main>
-    <!-- Logo Animado de Entrada (Doble de tamaño) -->
+    <!-- Logo Animado de Entrada -->
     <div class="hero-logo-container">
       <video autoplay loop muted playsinline preload="auto" class="hero-logo-video">
         <source src="Recursos/logo2.mov" type="video/quicktime; codecs=hvc1">
@@ -184,21 +179,18 @@
 
     <!-- Videos a Ancho Completo (Full Width) -->
     <section class="hero-section">
-      <!-- Video Portada 1 -->
       <div class="hero-video-wrapper">
         <video autoplay loop muted playsinline preload="auto" class="hero-bg-video">
           <source src="Recursos/portada1.mp4" type="video/mp4">
         </video>
       </div>
 
-      <!-- Video Portada 2 -->
       <div class="hero-video-wrapper">
         <video autoplay loop muted playsinline preload="auto" class="hero-bg-video">
           <source src="Recursos/portada2.mp4" type="video/mp4">
         </video>
       </div>
 
-      <!-- Video Portada 3 -->
       <div class="hero-video-wrapper">
         <video autoplay loop muted playsinline preload="auto" class="hero-bg-video">
           <source src="Recursos/portada3.mp4" type="video/mp4">
@@ -211,18 +203,18 @@
       <h2>// contacto</h2>
       <form class="contact-form" action="https://formspree.io/f/TU_FORM_ID" method="POST">
         <div class="form-group">
-          <label for="name">nombre / productora / proyecto</label>
-          <input type="text" id="name" name="name" required placeholder="tu nombre o proyecto">
+          <label for="name">nombre</label>
+          <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
           <label for="email">email</label>
-          <input type="email" id="email" name="email" required placeholder="tu@email.com">
+          <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
           <label for="message">mensaje</label>
-          <textarea id="message" name="message" required placeholder="contanos de qué se trata tu propuesta..."></textarea>
+          <textarea id="message" name="message" required></textarea>
         </div>
-        <button type="submit" class="submit-btn">[ enviar mensaje ]</button>
+        <button type="submit" class="submit-btn">enviar -></button>
       </form>
     </section>
   </main>
