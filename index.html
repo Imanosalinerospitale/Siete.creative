@@ -11,14 +11,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=27">
+  <link rel="stylesheet" href="style.css?v=28">
 
   <style>
-    /* Logo Animado de Entrada */
+    /* Ajuste de margen superior para dar espacio al header amplio */
     .hero-logo-container {
       width: 100%;
       max-width: 960px;
-      margin: 130px auto 50px;
+      margin: 170px auto 50px;
       padding: 0 24px;
       display: flex;
       justify-content: center;
@@ -35,7 +35,7 @@
       will-change: transform;
     }
 
-    /* Sección de videos a ancho completo (Full Width) */
+    /* Videos a ancho completo (Full Width) */
     .hero-section {
       width: 100%;
       display: flex;
@@ -136,7 +136,7 @@
 
     @media (max-width: 768px) {
       .hero-logo-container {
-        margin: 100px auto 30px;
+        margin: 140px auto 30px;
       }
 
       .contact-section {
@@ -165,7 +165,7 @@
       </video>
     </div>
 
-    <!-- Videos a Ancho Completo (Full Width) -->
+    <!-- Videos a Ancho Completo (Optimización de Carga Diferida) -->
     <section class="hero-section">
       <div class="hero-video-wrapper">
         <video autoplay loop muted playsinline preload="auto" class="hero-bg-video">
@@ -174,13 +174,13 @@
       </div>
 
       <div class="hero-video-wrapper">
-        <video autoplay loop muted playsinline preload="auto" class="hero-bg-video">
+        <video autoplay loop muted playsinline preload="metadata" class="hero-bg-video">
           <source src="Recursos/portada2.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="hero-video-wrapper">
-        <video autoplay loop muted playsinline preload="auto" class="hero-bg-video">
+        <video autoplay loop muted playsinline preload="metadata" class="hero-bg-video">
           <source src="Recursos/portada3.mp4" type="video/mp4">
         </video>
       </div>
@@ -210,7 +210,7 @@
   <footer class="footer">
     <div class="footer-content">
       <span>córdoba, argentina</span>
-      <a href="https://instagram.com/siete.creative" target="_blank" rel="noopener noreferrer">instagram</a>
+      <a href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener noreferrer">instagram</a>
       <span>© 2026 sie7e. todos los derechos reservados.</span>
     </div>
   </footer>
