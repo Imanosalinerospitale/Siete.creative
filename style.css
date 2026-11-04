@@ -23,13 +23,13 @@ select {
   font-family: 'Archivo', sans-serif;
 }
 
-/* Header & Nav Pegado al Borde Superior */
+/* Header Centrado y Pegado al Borde Superior */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 16px 32px 24px; /* 16px arriba (bien cerca del borde), 32px a los costados, 24px abajo */
+  padding: 16px 32px 24px; /* 16px de espacio arriba */
   background-color: rgba(236, 230, 230, 0.9);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
